@@ -1,15 +1,15 @@
 import React from 'react';
-import { Head } from '@inertiajs/react';
+// import { Head } from '@inertiajs/react';
 
 const LandingPage = () => {
     return (
         <div className="min-h-screen bg-white font-sans text-gray-900">
-            <Head title="Welcome to InkluSpace" />
+            {/* <Head title="Welcome to InkluSpace" /> */}
 
             {/* Navbar */}
             <nav className="bg-[#9D50E1] p-4 flex justify-between items-center text-white px-8">
                 <div className="flex items-center gap-2">
-                    {/* Ganti dengan Logo InkluSpace */}
+                    {/inkluspace.jpeg/}
                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#9D50E1] font-bold">
                         IS
                     </div>

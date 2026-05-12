@@ -1,0 +1,41 @@
+.landing-page {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.hero {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+}
+
+.values {
+    background-color: #f8f8f8;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.values .value-icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.value {
+    text-align: center;
+}
+
+.value img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #6a4dff;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
