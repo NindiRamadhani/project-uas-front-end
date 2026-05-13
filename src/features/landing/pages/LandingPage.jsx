@@ -1,15 +1,12 @@
 import React from 'react';
-// import { Head } from '@inertiajs/react';
 
 const LandingPage = () => {
     return (
         <div className="min-h-screen bg-white font-sans text-gray-900">
-            {/* <Head title="Welcome to InkluSpace" /> */}
-
+            
             {/* Navbar */}
             <nav className="bg-[#9D50E1] p-4 flex justify-between items-center text-white px-8">
                 <div className="flex items-center gap-2">
-                    {/inkluspace.jpeg/}
                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#9D50E1] font-bold">
                         IS
                     </div>
@@ -32,7 +29,7 @@ const LandingPage = () => {
                     </div>
                     <div className="flex-1">
                         <img 
-                            src="/path-to-your-hero-image.jpg" 
+                            src="/inkluspace.jpeg"  // Path gambar di folder public
                             alt="Masyarakat Inklusif" 
                             className="rounded-xl shadow-md w-full object-cover"
                         />
@@ -48,21 +45,30 @@ const LandingPage = () => {
                         {/* Card Inklusif */}
                         <div className="flex flex-col items-center gap-3">
                             <div className="w-20 h-20 bg-[#F472B6] rounded-2xl flex items-center justify-center text-white shadow-lg">
-                                {/* SVG Icon */}
+                                {/* SVG Icon untuk Inklusif */}
+                                <svg className="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v12m0 0l4-4m-4 4l-4-4" />
+                                </svg>
                             </div>
                             <span className="font-bold text-lg">Inklusif</span>
                         </div>
                         {/* Card Aman */}
                         <div className="flex flex-col items-center gap-3">
                             <div className="w-20 h-20 bg-[#F472B6] rounded-2xl flex items-center justify-center text-white shadow-lg">
-                                {/* SVG Icon */}
+                                {/* SVG Icon untuk Aman dan Terpercaya */}
+                                <svg className="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4v2m-7-7h14M5 15h14M12 3v12m0 0l4-4m-4 4l-4-4" />
+                                </svg>
                             </div>
                             <span className="font-bold text-lg">Aman dan Terpercaya</span>
                         </div>
                         {/* Card Mudah Digunakan */}
                         <div className="flex flex-col items-center gap-3">
                             <div className="w-20 h-20 bg-[#F472B6] rounded-2xl flex items-center justify-center text-white shadow-lg">
-                                {/* SVG Icon */}
+                                {/* SVG Icon untuk Mudah Digunakan */}
+                                <svg className="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14M5 12h14" />
+                                </svg>
                             </div>
                             <span className="font-bold text-lg">Mudah Digunakan</span>
                         </div>
