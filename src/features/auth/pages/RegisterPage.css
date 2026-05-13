@@ -1,61 +1,97 @@
-/* Register.css */
-.register-container {
-  max-width: 500px;
-  margin: 20px auto;
-  font-family: 'Arial', sans-serif;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.header-purple {
-  background-color: #a855f7; /* Warna ungu sesuai gambar */
-  padding: 15px;
-  text-align: center;
-  color: white;
+/* Wrapper agar konten berada di tengah layar */
+.floating-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Kotak Card Putih */
+.register-card {
+  width: 100%;
+  max-width: 600px; /* Lebar ideal untuk laptop agar isian tidak terlalu melar */
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Header Banner Ungu */
+.card-header {
+  background-color: #a855f7;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
+  color: white;
 }
 
-.header-purple img {
-  height: 40px;
+.logo-img {
+  height: 45px; /* Sesuaikan ukuran logo */
+  width: auto;
+  object-fit: contain;
 }
 
-.form-body {
-  padding: 30px;
+.card-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Area Isi Form */
+.card-body {
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-group {
-  margin-bottom: 15px;
+  margin-bottom: 18px; /* Jarak antar isian */
 }
 
 .input-group label {
   display: block;
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
 }
 
 .input-group input {
   width: 100%;
   border: none;
-  border-bottom: 2px solid #000; /* Garis bawah saja */
-  background: transparent;
-  outline: none;
-  padding: 5px 0;
+  border-bottom: 2px solid #000; /* Garis bawah tegas sesuai desain */
+  padding: 8px 0;
   font-size: 16px;
+  outline: none;
+  background: transparent;
+  transition: border-color 0.3s;
 }
 
+.input-group input:focus {
+  border-bottom-color: #a855f7;
+}
+
+/* Role Selection */
 .role-selection {
-  margin: 20px 0;
+  margin: 10px 0 20px 0;
 }
 
-.radio-group {
+.radio-container {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   margin-top: 10px;
 }
 
@@ -63,42 +99,53 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
 }
 
-/* Custom warna radio button ungu */
-.radio-item input[type="radio"] {
+.radio-item input {
   accent-color: #a855f7;
+  width: 18px;
+  height: 18px;
 }
 
-.terms-text {
+/* Text Bawah & Tombol */
+.agreement-text {
   font-size: 12px;
-  font-weight: 600;
+  text-align: center;
   margin-bottom: 25px;
+  color: #555;
 }
 
-.button-group {
+.button-row {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.btn {
-  padding: 10px 30px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  color: black;
-  width: 120px;
+  gap: 20px;
 }
 
 .btn-pink {
-  background-color: #f472b6; /* Warna pink */
+  background-color: #f472b6;
+  border: none;
+  padding: 12px 50px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.footer-text {
+.btn-pink:hover {
+  transform: scale(1.05);
+}
+
+.footer-login {
   text-align: center;
   font-size: 14px;
-  padding-bottom: 20px;
+  margin-top: 20px;
+}
+
+.footer-login strong {
+  cursor: pointer;
 }

@@ -1,95 +1,92 @@
 import React, { useState } from 'react';
-import './Register.css';
-import logo from './assets/logos/inkluspace-logo.png'; // Sesuaikan path logo kamu
+import './RegisterPage.css';
+// Pastikan path ini benar: keluar 3 folder (pages, auth, features) baru ke assets
+import logo from '../../../assets/logoinkluspace.png'; 
 
-const Register = () => {
-  const [formData, setFormData] = useState({
-    namaLengkap: '',
-    nomorTelepon: '',
-    email: '',
-    username: '',
-    password: '',
-    konfirmasiPassword: '',
-    role: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Data Pendaftar:", formData);
-    // Tambahkan logika registrasi di sini
-  };
+const RegisterPage = () => {
+  const [role, setRole] = useState('disabilitas');
 
   return (
-    <div className="register-container">
-      <div className="header-purple">
-        <img src={logo} alt="InkluSpace Logo" />
-        <h2 style={{margin: 0}}>InkluSpace</h2>
-      </div>
-
-      <form className="form-body" onSubmit={handleSubmit}>
-        <div className="input-group">
-          <label>Nama lengkap :</label>
-          <input type="text" name="namaLengkap" onChange={handleChange} />
+    <div className="floating-wrapper">
+      <div className="register-card">
+        {/* Header Ungu */}
+        <div className="card-header">
+          <img src={logo} alt="InkluSpace Logo" className="logo-img" />
+          <h1>InkluSpace</h1>
         </div>
 
-        <div className="input-group">
-          <label>Nomor Telepon :</label>
-          <input type="text" name="nomorTelepon" onChange={handleChange} />
-        </div>
-
-        <div className="input-group">
-          <label>Email :</label>
-          <input type="email" name="email" onChange={handleChange} />
-        </div>
-
-        <div className="input-group">
-          <label>Username :</label>
-          <input type="text" name="username" onChange={handleChange} />
-        </div>
-
-        <div className="input-group">
-          <label>Password :</label>
-          <input type="password" name="password" onChange={handleChange} />
-        </div>
-
-        <div className="input-group">
-          <label>Konfirmasi password :</label>
-          <input type="password" name="konfirmasiPassword" onChange={handleChange} />
-        </div>
-
-        <div className="role-selection">
-          <strong>Masuk sebagai :</strong>
-          <div className="radio-group">
-            <label className="radio-item">
-              <input type="radio" name="role" value="disabilitas" onChange={handleChange} />
-              Penyandang Disabilitas
-            </label>
-            <label className="radio-item">
-              <input type="radio" name="role" value="relawan" onChange={handleChange} />
-              Relawan
-            </label>
+        <form className="card-body" onSubmit={(e) => e.preventDefault()}>
+          <div className="input-group">
+            <label>Nama lengkap :</label>
+            <input type="text" name="namaLengkap" />
           </div>
-        </div>
+          
+          <div className="input-group">
+            <label>Nomor Telepon :</label>
+            <input type="tel" name="nomorTelepon" />
+          </div>
 
-        <p className="terms-text">
-          Dengan klik tombol daftar, saya telah menyetujui Ketentuan layanan InkluSpace
-        </p>
+          <div className="input-group">
+            <label>Email :</label>
+            <input type="email" name="email" />
+          </div>
 
-        <div className="button-group">
-          <button type="submit" className="btn btn-pink">Registrasi</button>
-          <button type="button" className="btn btn-pink">Masuk</button>
-        </div>
+          <div className="input-group">
+            <label>Username :</label>
+            <input type="text" name="username" />
+          </div>
 
-        <p className="footer-text">
-          Sudah memiliki akun Inkluspace? <strong>Masuk</strong>
-        </p>
-      </form>
+          <div className="input-group">
+            <label>Password :</label>
+            <input type="password" name="password" />
+          </div>
+
+          <div className="input-group">
+            <label>Konfirmasi password :</label>
+            <input type="password" name="konfirmasiPassword" />
+          </div>
+
+          <div className="role-selection">
+            <strong>Masuk sebagai :</strong>
+            <div className="radio-container">
+              <label className="radio-item">
+                <input 
+                  type="radio" 
+                  name="role" 
+                  checked={role === 'disabilitas'} 
+                  onChange={() => setRole('disabilitas')}
+                />
+                Penyandang Disabilitas
+              </label>
+              <label className="radio-item">
+                <input 
+                  type="radio" 
+                  name="role" 
+                  checked={role === 'relawan'} 
+                  onChange={() => setRole('relawan')}
+                />
+                Relawan
+              </label>
+            </div>
+          </div>
+
+          <p className="agreement-text">
+            Dengan klik tombol daftar, saya telah menyetujui <br/>
+            <strong>Ketentuan layanan InkluSpace</strong>
+          </p>
+
+          <div className="button-row">
+            <button type="submit" className="btn-pink">Registrasi</button>
+            <button type="button" className="btn-pink">Masuk</button>
+          </div>
+
+          <p className="footer-login">
+            Sudah memiliki akun Inkluspace? <strong>Masuk</strong>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };
 
-export default Register;
+export default RegisterPage;
