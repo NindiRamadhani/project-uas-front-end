@@ -1,100 +1,163 @@
-/* Global Styles */
-.landing-page {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Hero Section */
-.hero {
-    background-color: #ffffff;
-    padding: 50px 20px;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adding subtle shadow */
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
-.hero h1 {
-    font-size: 36px;
-    color: #333333; /* Dark text for contrast */
-    margin-bottom: 20px; /* Adding space below the heading */
+.inklu-wrapper {
+  background-color: #ffffff;
+  width: 100%;
 }
 
-.hero p {
-    font-size: 18px;
-    color: #555555; /* Lighter text color for description */
+.inklu-container {
+  max-width: 1200px;
+  width: 92%;
+  margin: 0 auto;
 }
 
-/* Values Section */
-.values {
-    background-color: #f8f8f8;
-    padding: 50px 20px;
-    text-align: center;
+/* --- HEADER (Disesuaikan image_39c2ef.png) --- */
+.inklu-header {
+  background-color: #A855F7; /* Ungu violet yang lebih cerah */
+  height: 140px;
+  display: flex;
+  align-items: center;
 }
 
-.values h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333333;
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.values .value-icons {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap; /* Ensures responsive design */
+.inklu-logo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
 
-.value {
-    text-align: center;
-    width: 30%; /* Ensures the value icons don't take up too much space */
-    margin-bottom: 20px;
+.inklu-img-main {
+  width: 75px; /* Ukuran sesuai gambar terbaru */
+  height: auto;
 }
 
-.value img {
-    width: 50px;
-    margin-bottom: 10px;
+.inklu-brand-text {
+  color: white;
+  font-weight: 900; /* Lebih tebal */
+  font-size: 18px;
+  letter-spacing: -0.5px;
 }
 
-.value h3 {
-    font-size: 20px;
-    color: #6a4dff; /* Icon's title color */
+.inklu-btn-pill {
+  background-color: white;
+  color: #000;
+  border: none;
+  padding: 10px 35px;
+  border-radius: 50px; /* Bentuk pill/kapsul sesuai gambar */
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Footer */
-footer {
-    background-color: #6a4dff;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
+/* --- MAIN CONTENT --- */
+.inklu-main {
+  padding-top: 40px;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .values .value-icons {
-        flex-direction: column;
-    }
-
-    .value {
-        width: 80%; /* Ensures better spacing on smaller screens */
-        margin: 10px 0;
-    }
+.inklu-card {
+  background-color: #F3E8FF; /* Soft Purple */
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 50px;
+  max-width: 1200px;
+  width: 92%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 22px;
-    }
-
-    .values h2 {
-        font-size: 24px;
-    }
-    
-    footer {
-        font-size: 12px;
-    }
+/* --- HERO --- */
+.hero-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
+
+.inklu-title-purple {
+  color: #9333EA;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.center { text-align: center; }
+.align-right { text-align: right; }
+
+.inklu-p-large {
+  font-size: 20px;
+  color: #1f2937;
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* --- VALUES --- */
+.values-section { text-align: center; }
+.values-grid {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.icon-pink-box {
+  background-color: #EC4899;
+  width: 160px;
+  height: 130px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.value-label {
+  font-weight: 800;
+  font-size: 22px;
+}
+
+/* --- ABOUT --- */
+.about-section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: 92%;
+  margin: 80px auto;
+}
+
+.about-blob {
+  flex: 1;
+  background-color: #F3E8FF;
+  padding: 60px;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+}
+
+.blob-quote {
+  color: #7C3AED;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.about-content { flex: 1.2; }
+.align-right { text-align: right; }
+.about-text-p p { margin-bottom: 15px; font-size: 18px; line-height: 1.6; }

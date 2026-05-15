@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* --- PERBAIKAN SCROLL --- */
+html, body {
+  /* Memastikan scrollbar vertikal muncul otomatis jika konten panjang */
+  overflow-y: auto !important;
+  /* Mencegah scrollbar horizontal yang tidak diinginkan */
+  overflow-x: hidden;
+  /* Membatalkan penguncian tinggi layar yang kaku */
+  height: auto !important;
+  /* Minimal setinggi layar agar background tetap penuh */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+#root {
+  /* Memastikan container React bisa memanjang mengikuti konten */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tips: Jika kamu menggunakan background warna di body, 
+   pastikan ditaruh di sini agar konsisten di semua halaman.
+*/
+body {
+  background-color: #f3f4f6; /* Warna abu-abu muda default (bisa kamu ganti) */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Tambahan: Pastikan elemen gambar tidak merusak layout */
+img {
+  max-width: 100%;
+  display: block;
+}

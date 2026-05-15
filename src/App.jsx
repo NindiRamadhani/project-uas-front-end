@@ -1,20 +1,34 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPage from './features/landing/pages/LandingPage';
-// 1. Tambahkan import RegisterPage di bawah ini
-import RegisterPage from './features/auth/pages/RegisterPage'; 
 
+// Import Komponen (Pastikan path folder sudah sesuai dengan struktur di sidebar kamu)
+import LandingPage from './features/landing/pages/LandingPage';
+import RegisterPage from './features/auth/pages/RegisterPage'; 
+import LoginPage from './features/auth/pages/LoginPage';
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        {/* Halaman utama tetap LandingPage */}
+        {/* 
+            Path "/" adalah halaman utama. 
+            Akses di browser: localhost:5173/
+        */}
         <Route path="/" element={<LandingPage />} />
         
-        {/* 2. Tambahkan route baru untuk halaman Register */}
+        {/* 
+            Path "/register" adalah halaman daftar. 
+            Akses di browser: localhost:5173/register
+        */}
         <Route path="/register" element={<RegisterPage />} />
+
+        {/* 
+            Tips: Jika ingin menambah halaman login nanti, 
+            tinggal tambah <Route path="/login" element={<LoginPage />} /> di bawah sini
+        */}
+        <Route path="/login" element={<LoginPage />} />
+        
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
