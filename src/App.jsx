@@ -5,6 +5,7 @@ import LandingPage from './features/landing/pages/LandingPage';
 import RegisterPage from './features/auth/pages/RegisterPage';
 import LoginPage from './features/auth/pages/LoginPage';
 import LupaKataSandi from './features/auth/pages/LupaKataSandi';
+import VerifikasiEmail from './features/auth/pages/VerifikasiEmail';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/lupasandi" element={<LupaKataSandi />} />
+        <Route path="/Verifikasi" element={<VerifikasiEmail />} />
       </Routes>
     </BrowserRouter>
   );
