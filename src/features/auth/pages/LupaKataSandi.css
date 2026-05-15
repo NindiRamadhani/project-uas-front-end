@@ -1,0 +1,158 @@
+/* Pengaturan Dasar */
+.wadah-utama {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #cbd5e0; /* Warna latar belakang abu-abu */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Kartu Utama */
+.kartu-pemulihan {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  position: relative;
+}
+
+/* Tombol Kembali */
+.tombol-kembali {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.panah-kiri {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-left: 3px solid #000;
+  border-bottom: 3px solid #000;
+  transform: rotate(45deg);
+}
+
+/* Gaya Visual Gembok */
+.area-ikon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.lingkaran-abu {
+  background-color: #94a3a8;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badan-gembok {
+  width: 50px;
+  height: 38px;
+  background-color: #334155;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.gagang-gembok {
+  width: 28px;
+  height: 28px;
+  border: 4px solid #334155;
+  border-radius: 50% 50% 0 0;
+  margin: 0 auto -4px auto;
+  border-bottom: none;
+}
+
+.titik-sandi {
+  color: white;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Teks dan Tipografi */
+.judul-halaman {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+.teks-instruksi {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+/* Area Input */
+.grup-input {
+  background-color: #e2e8f0;
+  border-radius: 15px;
+  padding: 12px 20px;
+  margin-bottom: 35px;
+}
+
+.pembungkus-input {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.ikon-amplop {
+  margin-right: 15px;
+  color: #000;
+}
+
+.area-ketik {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.area-ketik label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.area-ketik input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  margin-top: 2px;
+  width: 100%;
+}
+
+/* Tombol Pink */
+.tombol-kirim {
+  background-color: #ff91cc; /* Pink sesuai gambar */
+  color: #000;
+  border: none;
+  width: 65%;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.tombol-kirim:hover {
+  opacity: 0.9;
+}
