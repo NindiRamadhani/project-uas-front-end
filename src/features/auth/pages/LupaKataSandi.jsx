@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LupaKataSandi.css';
 
 const LupaKataSandi = () => {
-  const [dataInput, setDataInput] = useState('');
+  const [emailOrPhone, setEmailOrPhone] = useState('');
+  const navigate = useNavigate();
 
-  const tanganiKirim = () => {
-    alert("Instruksi pemulihan telah dikirim ke: " + dataInput);
-    // Logika pengiriman data ke server bisa diletakkan di sini
+  const handleKirim = () => {
+    if (!emailOrPhone) {
+      alert("Masukkan email atau nomor ponsel!");
+      return;
+    }
+    alert(`Instruksi pemulihan dikirim ke: ${emailOrPhone}`);
+    navigate('/login'); // Kembali ke halaman login
   };
 
   return (
     <div className="wadah-utama">
       <div className="kartu-pemulihan">
         {/* Tombol Kembali */}
-        <button className="tombol-kembali" onClick={() => window.history.back()}>
+        <button className="tombol-kembali" onClick={() => navigate(-1)}>
           <span className="panah-kiri"></span>
         </button>
 
-        {/* Bagian Ikon */}
+        {/* Ikon Gembok */}
         <div className="area-ikon">
           <div className="lingkaran-abu">
             <div className="gembok-visual">
@@ -30,7 +36,6 @@ const LupaKataSandi = () => {
         </div>
 
         <h2 className="judul-halaman">Lupa Kata Sandi</h2>
-        
         <p className="teks-instruksi">
           Masukkan email atau nomor ponsel anda untuk memulihkan kata sandi anda.
         </p>
@@ -48,16 +53,16 @@ const LupaKataSandi = () => {
               <label>Email atau No. Ponsel</label>
               <input 
                 type="text" 
-                placeholder="Contoh@gmail.com" 
-                value={dataInput}
-                onChange={(e) => setDataInput(e.target.value)}
+                placeholder="Contoh@gmail.com"
+                value={emailOrPhone}
+                onChange={(e) => setEmailOrPhone(e.target.value)}
               />
             </div>
           </div>
         </div>
 
-        {/* Tombol Aksi */}
-        <button className="tombol-kirim" onClick={tanganiKirim}>
+        {/* Tombol Kirim */}
+        <button className="tombol-kirim" onClick={handleKirim}>
           Kirim
         </button>
       </div>
