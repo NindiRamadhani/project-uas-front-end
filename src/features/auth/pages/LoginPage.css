@@ -4,83 +4,130 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: #dddddd;
+}
+
 .page {
   width: 100%;
   min-height: 100vh;
   background: #f2f2f2;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
 }
 
 .login-box {
-  width: 500px;
-  background: #f5f5f5;
-  border-radius: 20px;
+  width: 650px;
+
+  background-color: #f3f3f3;
+
+  border-radius: 25px;
+
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .login-header {
-  background: linear-gradient(to right, #8e2de2, #c86dd7);
-  padding: 18px;
+  width: 100%;
+
+  background: linear-gradient(to right, #9d4edd, #b565f5);
+
+  padding: 14px 0;
+
   text-align: center;
 }
 
 .login-header h1 {
   color: black;
-  font-size: 24px;
+
+  font-size: 34px;
+
   font-weight: bold;
 }
 
 .login-content {
-  padding: 35px;
+  padding: 28px 35px;
+
   display: flex;
   flex-direction: column;
 }
 
 .login-content label {
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #222;
+  display: block;
+
+  font-size: 22px;
+
+  margin-bottom: 8px;
+
+  color: black;
 }
 
 .login-content input {
+  width: 100%;
+
   border: none;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid black;
+
   background: transparent;
-  padding: 10px 5px;
-  margin-bottom: 25px;
+
+  padding: 6px 0;
+
+  margin-bottom: 28px;
+
+  font-size: 16px;
+
   outline: none;
-  font-size: 15px;
 }
 
 .forgot-password {
-  font-size: 12px;
-  color: #444;
+  font-size: 14px;
+
+  margin-top: -8px;
   margin-bottom: 20px;
-  cursor: pointer;
+
+  color: black;
+}
+
+.forgot-password a {
+  color: black;
+  text-decoration: none;
 }
 
 .login-button,
 .google-button {
-  width: 240px;
-  padding: 12px;
-  margin: 5px auto;
+  width: 55%;
+
+  display: block;
+
+  margin: 0 auto 14px auto;
+
+  padding: 10px;
+
   border: none;
-  border-radius: 8px;
-  background: #f48ac2;
-  color: black;
-  font-size: 16px;
+
+  border-radius: 10px;
+
+  background-color: #f48ac2;
+
+  font-size: 18px;
   font-weight: bold;
+
+  color: black;
+
   cursor: pointer;
+
   transition: 0.3s;
 }
 
 .login-button:hover,
 .google-button:hover {
   background: #ec6db0;
+
+  opacity: 0.9;
 }
 
 @media (max-width: 500px) {
