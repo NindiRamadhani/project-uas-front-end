@@ -1,3 +1,5 @@
+/* HomePage.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 *{
@@ -181,6 +183,8 @@ body{
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 
   transition: 0.3s ease;
+
+  text-decoration: none;
 }
 
 .fitur-card:hover,
@@ -210,7 +214,7 @@ body{
   color: white;
 }
 
-/* CARD CHAT YANG BISA DIKLIK */
+/* CARD CHAT */
 
 .green-link{
   background: #78f0a2;
@@ -222,7 +226,7 @@ body{
   cursor: pointer;
 }
 
-/* CARD BERBAGI INFORMASI YANG BISA DIKLIK */
+/* CARD INFORMASI */
 
 .orange-link{
   background: #ffb357;

@@ -1,3 +1,5 @@
+// HomePage.jsx
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -32,13 +34,16 @@ import {
 } from "react-icons/ri";
 
 function HomePage() {
+
   return (
+
     <div className="home-container">
 
       {/* NAVBAR */}
       <div className="navbar">
 
         <div className="logo-section">
+
           <img
             src={logoInkluSpace}
             alt="logo"
@@ -46,37 +51,67 @@ function HomePage() {
           />
 
           <p>InkluSpace</p>
+
         </div>
 
         <div className="menu-section">
 
+          {/* BERANDA */}
           <div className="menu-item">
+
             <IoHomeOutline className="nav-icon" />
+
             <span>Beranda</span>
+
           </div>
 
-          <div className="menu-item">
+          {/* MINTA BANTUAN */}
+          <Link
+            to="/request-help"
+            className="menu-item-link"
+          >
+
             <MdOutlineVolunteerActivism className="nav-icon" />
-            <span>Minta Bantuan</span>
-          </div>
 
-          {/* CHAT MENU */}
-          <Link to="/chat" className="menu-item-link">
-            <IoChatbubbleOutline className="nav-icon" />
-            <span>Chat</span>
+            <span>Minta Bantuan</span>
+
           </Link>
 
-          <div className="menu-item">
-            <FaRegUser className="nav-icon" />
-            <span>Profil</span>
-          </div>
+          {/* CHAT */}
+          <Link
+            to="/chat"
+            className="menu-item-link"
+          >
 
+            <IoChatbubbleOutline className="nav-icon" />
+
+            <span>Chat</span>
+
+          </Link>
+
+          {/* PROFIL */}
+          <Link
+            to="/profil-disabilitas"
+            className="menu-item-link"
+          >
+
+            <FaRegUser className="nav-icon" />
+
+            <span>Profil</span>
+
+          </Link>
+
+          {/* LOGOUT */}
           <div className="menu-item">
+
             <IoLogOutOutline className="nav-icon" />
+
             <span>Logout</span>
+
           </div>
 
         </div>
+
       </div>
 
       {/* HERO */}
@@ -116,26 +151,49 @@ function HomePage() {
 
       <div className="fitur-container">
 
-        <div className="fitur-card purple">
+        {/* MINTA BANTUAN */}
+        <Link
+          to="/request-help"
+          className="fitur-card purple"
+        >
+
           <MdOutlineVolunteerActivism className="fitur-icon" />
+
           <p>Minta Bantuan</p>
-        </div>
 
-        <div className="fitur-card red">
-          <TbMessageHeart className="fitur-icon" />
-          <p>Berbagi Cerita</p>
-        </div>
-
-        {/* CARD CHAT YANG BISA DIKLIK */}
-        <Link to="/chat" className="fitur-card green-link">
-          <HiOutlineChatBubbleLeftRight className="fitur-icon" />
-          <p>Chat dan Call</p>
         </Link>
 
-        {/* CARD BERBAGI INFORMASI YANG BISA DIKLIK */}
-        <Link to="/informasi" className="fitur-card orange-link">
+        {/* BERBAGI CERITA */}
+        <div className="fitur-card red">
+
+          <TbMessageHeart className="fitur-icon" />
+
+          <p>Berbagi Cerita</p>
+
+        </div>
+
+        {/* CHAT */}
+        <Link
+          to="/chat"
+          className="fitur-card green-link"
+        >
+
+          <HiOutlineChatBubbleLeftRight className="fitur-icon" />
+
+          <p>Chat</p>
+
+        </Link>
+
+        {/* INFORMASI */}
+        <Link
+          to="/Informasi"
+          className="fitur-card orange-link"
+        >
+
           <HiOutlineUserGroup className="fitur-icon" />
+
           <p>Berbagi Informasi</p>
+
         </Link>
 
       </div>
@@ -177,6 +235,7 @@ function HomePage() {
 
         <div className="nilai-container">
 
+          {/* CARD 1 */}
           <div className="nilai-card">
 
             <div className="nilai-icon pink">
@@ -192,6 +251,7 @@ function HomePage() {
 
           </div>
 
+          {/* CARD 2 */}
           <div className="nilai-card">
 
             <div className="nilai-icon pink">
@@ -207,6 +267,7 @@ function HomePage() {
 
           </div>
 
+          {/* CARD 3 */}
           <div className="nilai-card">
 
             <div className="nilai-icon pink">
@@ -227,7 +288,9 @@ function HomePage() {
       </div>
 
     </div>
+
   );
+
 }
 
 export default HomePage;
