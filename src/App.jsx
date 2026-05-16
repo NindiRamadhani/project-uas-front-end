@@ -8,6 +8,8 @@ import LupaKataSandi from './features/auth/pages/LupaKataSandi';
 import VerifikasiEmail from './features/auth/pages/VerifikasiEmail';
 import ResetPassword from './features/auth/pages/ResetPassword';
 import HomePage from './features/home/pages/HomePage';
+import Chat from './features/chat/pages/Chat';
+import BerbagiInformasi from './features/Information/pages/BerbagiInformasi';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/Verifikasi" element={<VerifikasiEmail />} />
         <Route path="/reset" element={<ResetPassword />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/chat" element={<Chat />} />
+           <Route path="/Informasi" element={<BerbagiInformasi />} />
       </Routes>
     </BrowserRouter>
   );

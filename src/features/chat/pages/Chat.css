@@ -1,0 +1,281 @@
+/* --- CONTAINER SYSTEM --- */
+.chat-page-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+/* --- NAVBAR HEADER ATAS --- */
+.chat-navbar {
+  width: 100%;
+  background-color: #A855F7; /* Ungu terang serasi figma */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 60px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.chat-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-logo-img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.chat-brand-name {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.chat-menu-section {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.chat-menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  gap: 6px;
+  opacity: 0.9;
+}
+
+.chat-menu-item.active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.chat-nav-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+
+/* --- LAYOUT UTAMA BAWAH --- */
+.chat-main-content {
+  flex: 1;
+  display: flex;
+  padding: 35px 60px;
+  box-sizing: border-box;
+  gap: 50px;
+  overflow: hidden;
+}
+
+/* SIDEBAR KIRI */
+.chat-sidebar {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.chat-sidebar-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 4px 0;
+}
+
+.chat-sidebar-status {
+  font-size: 15px;
+  color: #4B5563;
+  margin: 0 0 25px 0;
+}
+
+.chat-user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chat-user-card {
+  width: 100%;
+  background-color: #E5E7EB;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.chat-card-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+}
+
+
+/* --- AVATAR & ONLINE STATUS --- */
+.chat-avatar-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.chat-sidebar-avatar-icon {
+  font-size: 38px;
+  color: #000000;
+}
+
+/* Icon Outline Hitam Di Header Box */
+.chat-header-avatar-icon-outline {
+  font-size: 38px;
+  color: #000000;
+  display: block;
+}
+
+.chat-online-dot {
+  position: absolute;
+  bottom: 1px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background-color: #22C55E;
+  border: 2px solid #E5E7EB;
+  border-radius: 50%;
+}
+
+.header-dot {
+  bottom: 0px;
+  right: -1px;
+  border-color: #8D7B7B; /* Menyesuaikan warna background header figma */
+}
+
+
+/* --- AREA CHATBOX KANAN (PLEK KETIPLEK FIGMA) --- */
+.chat-window-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  overflow: hidden;
+}
+
+.chat-box-container {
+  flex: 1;
+  background-color: #D9D9D9; /* Warna abu-abu background chat figma */
+  border-radius: 4px; /* Sudut kotak presisi figma */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header Chatbox Abu Gelap Sesuai Gambar Figma */
+.chat-box-header {
+  background-color: #8D7B7B; 
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #000000;
+}
+
+.chat-header-name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #111111;
+}
+
+.chat-messages-body {
+  flex: 1;
+  padding: 25px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chat-row {
+  display: flex;
+  width: 100%;
+}
+
+.chat-row.sent {
+  justify-content: flex-end;
+}
+
+.chat-row.received {
+  justify-content: flex-start;
+}
+
+/* Bubble Chat Merah Bata/Salmon Figma Kotak Presisi */
+.chat-bubble {
+  max-width: 55%;
+  background-color: #CD8B8B; /* Warna salmon figma */
+  padding: 12px 18px;
+  border-radius: 4px;
+  color: #000000;
+}
+
+.chat-bubble p {
+  font-size: 15px;
+  margin: 0 0 4px 0;
+  font-family: sans-serif;
+}
+
+.chat-timestamp {
+  display: block;
+  font-size: 10px;
+  color: #374151;
+  text-align: right;
+}
+
+
+/* --- INPUT FIELD BAWAH --- */
+.chat-input-wrapper {
+  width: 100%;
+  height: 50px;
+  background-color: #D9D9D9;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  box-sizing: border-box;
+  gap: 15px;
+}
+
+.chat-input-field {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #000000;
+}
+
+.chat-send-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.chat-send-icon {
+  font-size: 24px;
+  color: #000000;
+}

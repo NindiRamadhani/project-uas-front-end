@@ -1,3 +1,6 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 import "./HomePage.css";
 
 import logoInkluSpace from "../../../assets/logoinkluspace.png";
@@ -57,10 +60,11 @@ function HomePage() {
             <span>Minta Bantuan</span>
           </div>
 
-          <div className="menu-item">
+          {/* CHAT MENU */}
+          <Link to="/chat" className="menu-item-link">
             <IoChatbubbleOutline className="nav-icon" />
             <span>Chat</span>
-          </div>
+          </Link>
 
           <div className="menu-item">
             <FaRegUser className="nav-icon" />
@@ -122,15 +126,17 @@ function HomePage() {
           <p>Berbagi Cerita</p>
         </div>
 
-        <div className="fitur-card green">
+        {/* CARD CHAT YANG BISA DIKLIK */}
+        <Link to="/chat" className="fitur-card green-link">
           <HiOutlineChatBubbleLeftRight className="fitur-icon" />
           <p>Chat dan Call</p>
-        </div>
+        </Link>
 
-        <div className="fitur-card orange">
+        {/* CARD BERBAGI INFORMASI YANG BISA DIKLIK */}
+        <Link to="/informasi" className="fitur-card orange-link">
           <HiOutlineUserGroup className="fitur-icon" />
           <p>Berbagi Informasi</p>
-        </div>
+        </Link>
 
       </div>
 
