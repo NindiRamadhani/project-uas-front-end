@@ -7,6 +7,7 @@ import LoginPage from './features/auth/pages/LoginPage';
 import LupaKataSandi from './features/auth/pages/LupaKataSandi';
 import VerifikasiEmail from './features/auth/pages/VerifikasiEmail';
 import ResetPassword from './features/auth/pages/ResetPassword';
+import HomePage from './features/home/pages/HomePage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/lupasandi" element={<LupaKataSandi />} />
         <Route path="/Verifikasi" element={<VerifikasiEmail />} />
         <Route path="/reset" element={<ResetPassword />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background: #ffffff;
+}
+
+.home-container{
+  width: 100%;
+}
+
+/* NAVBAR */
+
+.navbar{
+  width: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #8d45e6,
+    #b85cff
+  );
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 40px;
+}
+
+.logo-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.logo-img{
+  width: 55px;
+  height: 55px;
+
+  object-fit: contain;
+}
+
+.menu-section{
+  display: flex;
+  gap: 45px;
+}
+
+.menu-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.nav-icon{
+  font-size: 35px;
+
+  margin-bottom: 5px;
+}
+
+/* HERO */
+
+.hero-section{
+  width: 90%;
+
+  margin: 20px auto;
+
+  background: #f4e9ff;
+
+  border-radius: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 25px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.hero-text h1{
+  color: #8d45e6;
+
+  font-size: 48px;
+  font-weight: 700;
+
+  margin-bottom: 20px;
+}
+
+.hero-text p{
+  font-size: 24px;
+  font-weight: 400;
+
+  line-height: 1.6;
+}
+
+.hero-image{
+  width: 620px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img{
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* FITUR */
+
+.fitur-title{
+  text-align: center;
+
+  color: #8d45e6;
+
+  font-size: 48px;
+  font-weight: 700;
+
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.fitur-container{
+  width: 85%;
+
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.fitur-card{
+  width: 220px;
+  height: 170px;
+
+  border-radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 24px;
+  font-weight: 600;
+
+  text-align: center;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.fitur-icon{
+  font-size: 65px;
+
+  margin-bottom: 12px;
+}
+
+.purple{
+  background: #b85cff;
+}
+
+.red{
+  background: #ff6666;
+}
+
+.green{
+  background: #78f0a2;
+}
+
+.orange{
+  background: #ffb357;
+}
+
+/* GALLERY */
+
+.gallery-section{
+  width: 85%;
+
+  margin: 50px auto;
+
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.gallery-image-box{
+  width: 450px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+
+  border-radius: 15px;
+}
+
+.gallery-img{
+  width: 100%;
+  height: auto;
+
+  border-radius: 15px;
+}
+
+/* NILAI */
+
+.nilai-section{
+  width: 90%;
+
+  margin: auto;
+  margin-bottom: 40px;
+
+  background: #f4e9ff;
+
+  border-radius: 20px;
+
+  padding: 40px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.nilai-section h2{
+  text-align: center;
+
+  color: #8d45e6;
+
+  font-size: 48px;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+}
+
+.nilai-desc{
+  text-align: center;
+
+  font-size: 26px;
+  font-weight: 400;
+
+  margin-bottom: 40px;
+}
+
+.nilai-container{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.nilai-card{
+  width: 300px;
+
+  text-align: center;
+}
+
+.nilai-icon{
+  width: 140px;
+  height: 140px;
+
+  margin: auto;
+  margin-bottom: 20px;
+
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  font-size: 65px;
+}
+
+.pink{
+  background: #ff7bc7;
+}
+
+.nilai-card h3{
+  font-size: 23px;
+  font-weight: 700;
+
+  margin-bottom: 10px;
+
+  white-space: nowrap;
+}
+
+.nilai-card p{
+  font-size: 20px;
+  font-weight: 400;
+
+  line-height: 1.5;
+}
