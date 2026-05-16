@@ -1,5 +1,3 @@
-// HomePage.jsx
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -102,13 +100,16 @@ function HomePage() {
           </Link>
 
           {/* LOGOUT */}
-          <div className="menu-item">
+          <Link
+            to="/logout"
+            className="menu-item-link"
+          >
 
             <IoLogOutOutline className="nav-icon" />
 
             <span>Logout</span>
 
-          </div>
+          </Link>
 
         </div>
 
@@ -164,13 +165,16 @@ function HomePage() {
         </Link>
 
         {/* BERBAGI CERITA */}
-        <div className="fitur-card red">
+        <Link
+          to="/berbagi cerita"
+          className="fitur-card red-link"
+        >
 
           <TbMessageHeart className="fitur-icon" />
 
           <p>Berbagi Cerita</p>
 
-        </div>
+        </Link>
 
         {/* CHAT */}
         <Link

@@ -27,6 +27,10 @@ import BerbagiInformasi from './features/Information/pages/BerbagiInformasi';
 
 import RequestHelp from './MintaBantuan/RequestHelp';
 
+import BerbagiCerita from './features/stories/pages/BerbagiCerita';
+
+import Logout from './features/logout/pages/Logout';
+
 /* IMPORT PROFIL */
 import ProfilPenyandangDisabilitas from './features/ProfilPenyandangDisabilitas/ProfilPenyandangDisabilitas';
 
@@ -102,6 +106,18 @@ function App() {
         <Route
           path="/profil-disabilitas"
           element={<ProfilPenyandangDisabilitas />}
+        />
+
+        {/* BERBAGI CERITA */}
+        <Route
+          path="/berbagi cerita"
+          element={<BerbagiCerita />}
+        />
+
+        {/* LOGOUT */}
+        <Route
+          path="/logout"
+          element={<Logout />}
         />
 
       </Routes>

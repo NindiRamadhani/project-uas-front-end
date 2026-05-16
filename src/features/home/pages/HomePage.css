@@ -1,5 +1,3 @@
-/* HomePage.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 *{
@@ -164,7 +162,8 @@ body{
 
 .fitur-card,
 .green-link,
-.orange-link{
+.orange-link,
+.red-link{
   width: 220px;
   height: 170px;
 
@@ -189,7 +188,8 @@ body{
 
 .fitur-card:hover,
 .green-link:hover,
-.orange-link:hover{
+.orange-link:hover,
+.red-link:hover{
   transform: translateY(-5px);
 }
 
@@ -212,6 +212,18 @@ body{
 .green{
   background: #78f0a2;
   color: white;
+}
+
+/* CARD BERBAGI CERITA */
+
+.red-link{
+  background: #ff6666;
+
+  color: white;
+
+  text-decoration: none;
+
+  cursor: pointer;
 }
 
 /* CARD CHAT */
