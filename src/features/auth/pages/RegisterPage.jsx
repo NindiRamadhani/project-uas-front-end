@@ -120,3 +120,4 @@ Role: ${formData.role}`);
 };
 
 export default RegisterPage;
+

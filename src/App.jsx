@@ -30,6 +30,7 @@ import RequestHelp from './MintaBantuan/RequestHelp';
 import BerbagiCerita from './features/stories/pages/BerbagiCerita';
 
 import Logout from './features/logout/pages/Logout';
+import PermintaanBantuanRelawan from './features/relawan/dashboard/pages/PermintaanBantuanRelawan';
 
 /* IMPORT PROFIL */
 import ProfilPenyandangDisabilitas from './features/ProfilPenyandangDisabilitas/ProfilPenyandangDisabilitas';
@@ -120,6 +121,10 @@ function App() {
           element={<Logout />}
         />
 
+        <Route
+          path="/PermintaanBantuan"
+          element={<PermintaanBantuanRelawan />}
+        />
       </Routes>
 
     </BrowserRouter>
