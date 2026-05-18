@@ -7,16 +7,20 @@ import "./ProfilPenyandangDisabilitas.css";
 import logoInkluSpace from "../../assets/logoinkluspace.png";
 
 import {
-  FaHome,
-  FaComments,
-  FaUser,
-  FaSignOutAlt,
+  IoHomeOutline,
+  IoChatbubbleOutline,
+  IoLogOutOutline,
+} from "react-icons/io5";
+
+import { FaRegUser } from "react-icons/fa";
+
+import {
   FaRegClock,
   FaCalendarAlt,
   FaHeart,
 } from "react-icons/fa";
 
-import { MdVolunteerActivism } from "react-icons/md";
+import { MdOutlineVolunteerActivism } from "react-icons/md";
 
 export default function ProfilPenyandangDisabilitas() {
 
@@ -25,28 +29,29 @@ export default function ProfilPenyandangDisabilitas() {
     <div className="profile-page">
 
       {/* NAVBAR */}
-      <nav className="navbar">
+      <div className="navbar">
 
-        <div className="logo">
+        <div className="logo-section">
 
           <img
             src={logoInkluSpace}
             alt="logo"
+            className="logo-img"
           />
 
-          <span>InkluSpace</span>
+          <p>InkluSpace</p>
 
         </div>
 
-        <div className="nav-menu">
+        <div className="menu-section">
 
           {/* BERANDA */}
           <Link
             to="/home"
-            className="nav-item-link"
+            className="menu-item-link"
           >
 
-            <FaHome />
+            <IoHomeOutline className="nav-icon" />
 
             <span>Beranda</span>
 
@@ -55,10 +60,10 @@ export default function ProfilPenyandangDisabilitas() {
           {/* MINTA BANTUAN */}
           <Link
             to="/request-help"
-            className="nav-item-link"
+            className="menu-item-link"
           >
 
-            <MdVolunteerActivism />
+            <MdOutlineVolunteerActivism className="nav-icon" />
 
             <span>Minta Bantuan</span>
 
@@ -67,36 +72,57 @@ export default function ProfilPenyandangDisabilitas() {
           {/* CHAT */}
           <Link
             to="/chat"
-            className="nav-item-link"
+            className="menu-item-link"
           >
 
-            <FaComments />
+            <IoChatbubbleOutline className="nav-icon" />
 
             <span>Chat</span>
 
           </Link>
 
           {/* PROFIL */}
-          <div className="nav-item active">
+          <div className="menu-item">
 
-            <FaUser />
+            <FaRegUser className="nav-icon" />
 
             <span>Profil</span>
 
           </div>
 
           {/* LOGOUT */}
-          <div className="nav-item">
+          <Link
+            to="/logout"
+            className="menu-item-link"
+          >
 
-            <FaSignOutAlt />
+            <IoLogOutOutline className="nav-icon" />
 
             <span>Logout</span>
 
-          </div>
+          </Link>
 
         </div>
 
-      </nav>
+      </div>
+
+      {/* PROFILE HEADER */}
+      <div className="profile-header">
+
+        <div className="profile-avatar">
+
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            alt="profile"
+          />
+
+        </div>
+
+        <h2>Budi Prasetyo</h2>
+
+        <p>Status : Aktif</p>
+
+      </div>
 
       {/* CONTENT */}
       <div className="profile-content">

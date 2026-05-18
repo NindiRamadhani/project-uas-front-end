@@ -8,53 +8,66 @@ import logoInkluSpace from "../assets/logoinkluspace.png";
 import accessibleBanner from "../assets/accessible.jpeg";
 
 import {
-  FaHome,
-  FaComments,
-  FaUser,
-  FaSignOutAlt,
-} from "react-icons/fa";
+  IoHomeOutline,
+  IoChatbubbleOutline,
+  IoLogOutOutline,
+} from "react-icons/io5";
 
-import { MdVolunteerActivism } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
+
+import { MdOutlineVolunteerActivism } from "react-icons/md";
 
 export default function RequestHelp() {
+
   return (
+
     <div className="request-page">
 
-      {/* Navbar */}
-      <nav className="navbar">
+      {/* NAVBAR */}
+      <div className="navbar">
 
-        <div className="logo">
+        <div className="logo-section">
 
           <img
             src={logoInkluSpace}
             alt="logo"
+            className="logo-img"
           />
 
-          <span>InkluSpace</span>
+          <p>InkluSpace</p>
 
         </div>
 
-        <div className="nav-menu">
+        <div className="menu-section">
 
           {/* BERANDA */}
           <Link
             to="/home"
-            className="nav-item-link"
+            className="menu-item-link"
           >
 
-            <FaHome />
+            <IoHomeOutline className="nav-icon" />
 
             <span>Beranda</span>
 
           </Link>
 
+          {/* MINTA BANTUAN */}
+          <div className="menu-item">
+
+            <MdOutlineVolunteerActivism className="nav-icon" />
+
+            <span>Minta Bantuan</span>
+
+          </div>
+
           {/* CHAT */}
           <Link
             to="/chat"
-            className="nav-item-link"
+            className="menu-item-link"
           >
 
-            <FaComments />
+            <IoChatbubbleOutline className="nav-icon" />
 
             <span>Chat</span>
 
@@ -63,36 +76,41 @@ export default function RequestHelp() {
           {/* PROFIL */}
           <Link
             to="/profil-disabilitas"
-            className="nav-item-link"
+            className="menu-item-link"
           >
 
-            <FaUser />
+            <FaRegUser className="nav-icon" />
 
             <span>Profil</span>
 
           </Link>
 
           {/* LOGOUT */}
-          <div className="nav-item">
+          <Link
+            to="/logout"
+            className="menu-item-link"
+          >
 
-            <FaSignOutAlt />
+            <IoLogOutOutline className="nav-icon" />
 
             <span>Logout</span>
 
-          </div>
+          </Link>
 
         </div>
 
-      </nav>
+      </div>
 
-      {/* Content */}
+      {/* CONTENT */}
       <div className="content">
 
-        {/* Header */}
+        {/* HEADER */}
         <div className="header-section">
 
           <div className="help-icon">
-            <MdVolunteerActivism />
+
+            <MdOutlineVolunteerActivism />
+
           </div>
 
           <h1>Minta Bantuan</h1>
@@ -105,10 +123,10 @@ export default function RequestHelp() {
 
         </div>
 
-        {/* Main */}
+        {/* MAIN */}
         <div className="main-section">
 
-          {/* Form */}
+          {/* FORM */}
           <div className="form-section">
 
             <h2>Isi Formulir</h2>
@@ -144,7 +162,7 @@ export default function RequestHelp() {
 
           </div>
 
-          {/* Cara Kerja */}
+          {/* STEPS */}
           <div className="steps-card">
 
             <h2>Cara Kerja</h2>
@@ -217,7 +235,7 @@ export default function RequestHelp() {
 
         </div>
 
-        {/* Banner */}
+        {/* BANNER */}
         <div className="accessible-banner">
 
           <img
@@ -227,7 +245,7 @@ export default function RequestHelp() {
 
         </div>
 
-        {/* Footer */}
+        {/* FOOTER */}
         <div className="privacy-text">
 
           <span>Privasi Anda Terjamin:</span>
@@ -243,5 +261,7 @@ export default function RequestHelp() {
       </div>
 
     </div>
+
   );
+
 }
