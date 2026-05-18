@@ -34,6 +34,8 @@ import PermintaanBantuanRelawan from './features/relawan/dashboard/pages/Permint
 
 /* IMPORT PROFIL */
 import ProfilPenyandangDisabilitas from './features/ProfilPenyandangDisabilitas/ProfilPenyandangDisabilitas';
+import ProfilRelawan from './features/relawan/ProfilRelawan';
+
 
 function App() {
 
@@ -124,6 +126,10 @@ function App() {
         <Route
           path="/PermintaanBantuan"
           element={<PermintaanBantuanRelawan />}
+        />
+        <Route
+          path="/ProfilRelawan"
+          element={<ProfilRelawan/>}
         />
       </Routes>
 

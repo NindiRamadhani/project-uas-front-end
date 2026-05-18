@@ -1,163 +1,299 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
+body{
+  font-family:'Poppins', sans-serif;
+  background:#ffffff;
 }
 
-.inklu-wrapper {
-  background-color: #ffffff;
-  width: 100%;
+.inklu-wrapper{
+  width:100%;
+  background:#ffffff;
 }
 
-.inklu-container {
+.inklu-container{
+  max-width:1200px;
+  width:92%;
+  margin:0 auto;
+}
+
+/* HEADER */
+
+.inklu-header{
+  background-color:#A855F7;
+  height:140px;
+  display:flex;
+  align-items:center;
+}
+
+.header-flex{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.inklu-logo-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+}
+
+.inklu-img-main{
+  width:75px;
+  height:auto;
+}
+
+.inklu-brand-text{
+  color:white;
+  font-weight:900;
+  font-size:18px;
+  letter-spacing:-0.5px;
+}
+
+/* BUTTON */
+
+.inklu-btn-pill{
+  background-color:white;
+  color:#000;
+  border:none;
+  padding:10px 35px;
+  border-radius:50px;
+  font-size:22px;
+  font-weight:800;
+  cursor:pointer;
+
+  transition:all 0.25s ease;
+
+  box-shadow:0 4px 6px rgba(0,0,0,0.1);
+}
+
+.inklu-btn-pill:hover{
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 10px 20px rgba(0,0,0,0.18);
+}
+
+.inklu-btn-pill:active{
+  transform:scale(0.95);
+}
+
+/* MAIN */
+
+.inklu-main{
+  padding-top:40px;
+}
+
+/* CARD */
+
+.inklu-card{
+  background-color:#F2E3F8 !important;
+
+  border-radius:24px;
+
+  padding:50px;
+
+  margin-bottom:50px;
+
+  max-width:1200px;
+  width:92%;
+
+  min-height:420px;
+
+  margin-left:auto;
+  margin-right:auto;
+
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+
+/* HERO */
+
+.hero-section{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+
+  min-height:420px;
+
+  background-color:#F2E3F8 !important;
+}
+
+.hero-content{
+  flex:1;
+}
+
+.hero-img-box{
+  flex:1.2;
+}
+
+.inklu-title-purple{
+  color:#9333EA;
+  font-weight:800;
+  font-size:42px;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.center{
+  text-align:center;
+}
+
+.align-right{
+  text-align:right;
+  padding-right:40px;
+}
+
+.inklu-p-large{
+  font-size:20px;
+  color:#1f2937;
+  line-height:1.6;
+}
+
+.hero-img{
+  width:100%;
+  border-radius:12px;
+  object-fit:cover;
+}
+
+/* VALUES */
+
+.values-section{
+  text-align:center;
+  min-height:420px;
+}
+
+.inklu-p-sub{
+  font-size:18px;
+  color:#374151;
+  margin-top:-5px;
+}
+
+.values-grid{
+  display:flex;
+  justify-content:space-evenly;
+  align-items:flex-start;
+  gap:20px;
+  margin-top:45px;
+  flex-wrap:wrap;
+}
+
+.value-item{
+  width:240px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.icon-pink-box{
+  background-color:#EC4899;
+
+  width:150px;
+  height:130px;
+
+  border-radius:32px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  margin-bottom:18px;
+
+  transition:0.3s ease;
+}
+
+.icon-pink-box:hover{
+  transform:translateY(-6px);
+}
+
+.value-label{
+  font-weight:800;
+  font-size:22px;
+  line-height:1.3;
+  text-align:center;
+}
+
+/* ABOUT (Sangat Ngeblob & Rata Kiri Seutuhnya) */
+
+.about-section{
+  display: flex;
+  align-items: center;
+  gap: 40px;
   max-width: 1200px;
-  width: 92%;
-  margin: 0 auto;
-}
-
-/* --- HEADER (Disesuaikan image_39c2ef.png) --- */
-.inklu-header {
-  background-color: #A855F7; /* Ungu violet yang lebih cerah */
-  height: 140px;
-  display: flex;
-  align-items: center;
-}
-
-.header-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.inklu-logo-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-.inklu-img-main {
-  width: 75px; /* Ukuran sesuai gambar terbaru */
-  height: auto;
-}
-
-.inklu-brand-text {
-  color: white;
-  font-weight: 900; /* Lebih tebal */
-  font-size: 18px;
-  letter-spacing: -0.5px;
-}
-
-.inklu-btn-pill {
-  background-color: white;
-  color: #000;
-  border: none;
-  padding: 10px 35px;
-  border-radius: 50px; /* Bentuk pill/kapsul sesuai gambar */
-  font-size: 22px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* --- MAIN CONTENT --- */
-.inklu-main {
-  padding-top: 40px;
-}
-
-.inklu-card {
-  background-color: #F3E8FF; /* Soft Purple */
-  border-radius: 24px;
-  padding: 40px;
-  margin-bottom: 50px;
-  max-width: 1200px;
-  width: 92%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* --- HERO --- */
-.hero-section {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.inklu-title-purple {
-  color: #9333EA;
-  font-weight: 800;
-  font-size: 42px;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.center { text-align: center; }
-.align-right { text-align: right; }
-
-.inklu-p-large {
-  font-size: 20px;
-  color: #1f2937;
-}
-
-.hero-img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-/* --- VALUES --- */
-.values-section { text-align: center; }
-.values-grid {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 40px;
-}
-
-.icon-pink-box {
-  background-color: #EC4899;
-  width: 160px;
-  height: 130px;
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.value-label {
-  font-weight: 800;
-  font-size: 22px;
-}
-
-/* --- ABOUT --- */
-.about-section {
-  display: flex;
-  align-items: center;
-  gap: 60px;
   width: 92%;
   margin: 80px auto;
 }
 
-.about-blob {
+.about-blob{
   flex: 1;
-  background-color: #F3E8FF;
-  padding: 60px;
-  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  background-color: #EFE5FD;
+  padding: 60px 45px;
+  
+  /* Efek border-radius 8 titik yang asimetris ekstrem agar makin ngeblob */
+  border-radius: 42% 58% 30% 70% / 45% 45% 55% 55%;
+  
+  /* Efek rotasi halus agar lekukan terlihat lebih cair dan natural */
+  transform: rotate(-2deg); 
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.blob-quote {
-  color: #7C3AED;
-  font-size: 24px;
-  font-weight: 800;
-  text-align: center;
+.blob-quote{
+  /* Mengembalikan rotasi teks agar tulisan di dalam blob tetap tegak dan rapi */
+  transform: rotate(2deg); 
+  color: #8B5CF6;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: left; /* Teks kutipan rata kiri */
+  line-height: 1.4;
 }
 
-.about-content { flex: 1.2; }
-.align-right { text-align: right; }
-.about-text-p p { margin-bottom: 15px; font-size: 18px; line-height: 1.6; }
+.about-content{
+  flex: 1.2;
+}
+
+/* Menimpa class .align-right bawaan lama agar judul TENTANG KAMI beralih ke rata kiri */
+.inklu-title-purple.align-right {
+  text-align: left !important;
+  padding-right: 0;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.about-text-p p{
+  margin-bottom: 15px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #000000;
+  text-align: left; /* Paragraf deskripsi rata kiri */
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .hero-section{
+    flex-direction:column;
+  }
+
+  .about-section{
+    flex-direction:column;
+  }
+
+  .values-grid{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .inklu-title-purple{
+    font-size:34px;
+  }
+
+}
