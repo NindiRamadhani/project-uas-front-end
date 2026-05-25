@@ -36,6 +36,7 @@ import PermintaanBantuanRelawan from './features/relawan/dashboard/pages/Permint
 import ProfilPenyandangDisabilitas from './features/ProfilPenyandangDisabilitas/ProfilPenyandangDisabilitas';
 import ProfilRelawan from './features/relawan/ProfilRelawan';
 
+import AdminDashboard from './features/admin/pages/AdminDashboard';
 
 function App() {
 
@@ -130,6 +131,11 @@ function App() {
         <Route
           path="/ProfilRelawan"
           element={<ProfilRelawan/>}
+        />
+
+        <Route
+          path="/admin"
+          element={<AdminDashboard/>}
         />
       </Routes>
 

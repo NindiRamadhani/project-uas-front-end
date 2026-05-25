@@ -1,59 +1,96 @@
-// ResetPassword.jsx
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./ResetPassword.css";
-import { IoChevronBack } from "react-icons/io5";
 
-function ResetPassword() {
+const ResetPassword = () => {
+  const navigate = useNavigate();
+
+  const [passwordBaru, setPasswordBaru] = useState("");
+  const [konfirmasiPassword, setKonfirmasiPassword] = useState("");
+
+  const handleSimpan = () => {
+    if (!passwordBaru || !konfirmasiPassword) {
+      alert("Semua field harus diisi!");
+      return;
+    }
+
+    if (passwordBaru !== konfirmasiPassword) {
+      alert("Konfirmasi password tidak cocok!");
+      return;
+    }
+
+    alert("Password berhasil diubah!");
+    navigate("/home");
+  };
+
   return (
-    <div className="reset-page">
+    <div className="reset-container">
+      <div className="reset-card">
 
-      <div className="reset-container">
+        {/* Tombol Back */}
+        <button
+          className="back-button"
+          onClick={() => navigate("/Verifikasi")}
+        >
+          <span className="arrow-left"></span>
+        </button>
 
-        <div className="header">
+        {/* Judul */}
+        <h1 className="reset-title">Buat Kata Sandi Baru</h1>
 
-          <IoChevronBack className="back-icon" />
+        {/* Icon */}
+        <div className="reset-icon-wrapper">
+          <div className="reset-icon-circle">
 
-          <h1>Buat Kata Sandi Baru</h1>
+            <div className="lock-refresh-icon">
+              <div className="lock-top"></div>
 
+              <div className="lock-body">
+                <div className="lock-dot"></div>
+              </div>
+
+              <div className="refresh-arrow refresh-left"></div>
+              <div className="refresh-arrow refresh-right"></div>
+            </div>
+
+          </div>
         </div>
 
-        <div className="icon-wrapper">
-
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png"
-            alt="lock"
-          />
-
-        </div>
-
-        <h2>
+        {/* Text */}
+        <p className="reset-description">
           Buat kata sandi baru yang kuat untuk akun anda.
-        </h2>
+        </p>
 
-        <div className="input-group">
-
+        {/* Input Password Baru */}
+        <div className="input-group-reset">
           <label>Kata Sandi Baru</label>
 
-          <input type="password" />
-
+          <input
+            type="password"
+            value={passwordBaru}
+            onChange={(e) => setPasswordBaru(e.target.value)}
+          />
         </div>
 
-        <div className="input-group">
-
+        {/* Input Konfirmasi */}
+        <div className="input-group-reset">
           <label>Konfirmasi Kata Sandi</label>
 
-          <input type="password" />
-
+          <input
+            type="password"
+            value={konfirmasiPassword}
+            onChange={(e) => setKonfirmasiPassword(e.target.value)}
+          />
         </div>
 
-        <button className="save-btn">
+        {/* Button */}
+        <button className="save-button" onClick={handleSimpan}>
           Simpan
         </button>
 
       </div>
-
     </div>
   );
-}
+};
 
 export default ResetPassword;

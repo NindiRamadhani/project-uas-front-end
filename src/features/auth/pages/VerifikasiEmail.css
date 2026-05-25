@@ -1,109 +1,195 @@
-.v-page-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: #cbd5e1;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-.v-card-exact {
-  position: relative;
-  background: white;
-  width: 90%;
-  max-width: 400px;
-  /* Tinggi dipendekkan */
-  padding: 20px 30px 15px 30px; 
-  border-radius: 40px;
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif;
 }
 
-.v-back-btn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
+/* BACKGROUND */
 
-.v-title-text {
-  font-size: 20px;
-  font-weight: 900;
-  margin: 0 0 12px 0;
-  color: #000;
-}
+.verifikasi-container{
+  min-height: 100vh;
 
-.v-icon-wrapper {
+  background: #d6dde6;
+
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
-}
-
-.v-icon-circle {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: #94a3b8;
-  width: 105px;
-  height: 105px;
-  border-radius: 50%;
 }
 
-.v-msg-box {
-  margin-bottom: 12px;
+/* CARD */
+
+.verifikasi-card{
+  width: 650px;
+
+  background: white;
+
+  border-radius: 35px;
+
+  padding: 40px 35px;
+
+  position: relative;
+
+  text-align: center;
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
-.v-msg-box p {
-  font-size: 13.5px;
-  font-weight: 800;
-  margin: 1px 0;
-  color: #000;
+/* BACK BUTTON */
+
+.back-button{
+  position: absolute;
+
+  top: 28px;
+  left: 28px;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
 }
 
-.v-otp-inputs {
+.back-arrow{
+  display: block;
+
+  width: 16px;
+  height: 16px;
+
+  border-left: 4px solid black;
+  border-bottom: 4px solid black;
+
+  transform: rotate(45deg);
+}
+
+/* TITLE */
+
+.verifikasi-title{
+  font-size: 30px;
+  font-weight: 700;
+
+  color: #111;
+
+  margin-bottom: 24px;
+}
+
+/* ICON */
+
+.icon-wrapper{
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 15px;
+
+  margin-bottom: 28px;
 }
 
-.v-otp-box {
-  width: 50px;
-  height: 50px;
-  background-color: #e2e8f0;
+.icon-circle{
+  width: 135px;
+  height: 135px;
+
+  border-radius: 50%;
+
+  background: #98a5ae !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mail-icon{
+  width: 68px;
+  height: 68px;
+
+  color: #374151;
+}
+
+/* TEXT */
+
+.verifikasi-text{
+  font-size: 18px;
+  font-weight: 700;
+
+  color: #111;
+
+  line-height: 1.5;
+
+  margin-bottom: 35px;
+}
+
+/* INPUT OTP */
+
+.kode-container{
+  display: flex;
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-bottom: 35px;
+}
+
+.kode-input{
+  width: 78px;
+  height: 78px;
+
   border: none;
-  border-radius: 12px;
+
+  border-radius: 16px;
+
+  background: #ececec;
+
   text-align: center;
-  font-size: 20px;
-  font-weight: 900;
-  color: #000;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  outline: none;
 }
 
-.v-submit-pink {
-  width: 60%;
-  background-color: #f472b6;
-  color: #000;
+/* BUTTON */
+
+.verifikasi-button{
+  width: 260px;
+  height: 60px;
+
   border: none;
-  padding: 10px;
-  border-radius: 12px;
-  font-weight: 900;
-  font-size: 15px;
+
+  border-radius: 16px;
+
+  background: #ff91cc;
+
+  color: black;
+
+  font-size: 20px;
+  font-weight: 700;
+
   cursor: pointer;
+
+  margin-bottom: 26px;
+
+  transition: 0.3s;
 }
 
-.v-footer-msg {
-  margin-top: 12px;
-  /* Font weight diubah jadi normal (tidak bold) */
-  font-weight: 400; 
-  font-size: 13px;
-  color: #4b5563;
+.verifikasi-button:hover{
+  opacity: 0.9;
 }
 
-.v-resend-link {
-  color: #3b82f6;
+/* RESEND */
+
+.resend-text{
+  font-size: 16px;
+
+  color: #222;
+}
+
+.resend-link{
+  color: #3b5cff;
+
   cursor: pointer;
-  /* Link tetap bold sedikit supaya kontras atau biarkan normal */
-  font-weight: 600; 
+
+  font-weight: 600;
+}
+
+.resend-link:hover{
+  text-decoration: underline;
 }

@@ -1,5 +1,4 @@
-// ProfilPenyandangDisabilitas.jsx
-
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./ProfilPenyandangDisabilitas.css";
@@ -12,46 +11,62 @@ import {
   IoLogOutOutline,
 } from "react-icons/io5";
 
-import { FaRegUser } from "react-icons/fa";
-
-import {
-  FaRegClock,
-  FaCalendarAlt,
-  FaHeart,
-} from "react-icons/fa";
-
 import { MdOutlineVolunteerActivism } from "react-icons/md";
 
-export default function ProfilPenyandangDisabilitas() {
+import { FaRegUser, FaUserCircle } from "react-icons/fa";
+
+function ProfilPenyandangDisabilitas() {
+
+  // STATE DATA PROFIL
+  const [nama, setNama] = useState("Budi Prasetyo");
+  const [email, setEmail] = useState("budi@gmail.com");
+  const [telepon, setTelepon] = useState("081234567890");
+  const [alamat, setAlamat] = useState("Blitar, Jawa Timur");
+  const [disabilitas, setDisabilitas] = useState("Tunanetra");
+
+  // STATE EDIT
+  const [isEdit, setIsEdit] = useState(false);
+
+  // HANDLE BUTTON
+  const handleEdit = () => {
+
+    if(isEdit){
+      alert("Profil berhasil disimpan!");
+    }
+
+    setIsEdit(!isEdit);
+  };
 
   return (
 
-    <div className="profile-page">
+    <div className="profile-container">
 
       {/* NAVBAR */}
-      <div className="navbar">
+      <div className="profile-navbar">
 
-        <div className="logo-section">
+        {/* LOGO */}
+        <div className="profile-logo-section">
 
           <img
             src={logoInkluSpace}
             alt="logo"
-            className="logo-img"
+            className="profile-logo-img"
           />
 
           <p>InkluSpace</p>
 
         </div>
 
-        <div className="menu-section">
+        {/* MENU */}
+        <div className="profile-menu-section">
 
           {/* BERANDA */}
           <Link
             to="/home"
-            className="menu-item-link"
+            className="profile-menu-item"
           >
 
-            <IoHomeOutline className="nav-icon" />
+            <IoHomeOutline className="profile-nav-icon" />
 
             <span>Beranda</span>
 
@@ -60,10 +75,10 @@ export default function ProfilPenyandangDisabilitas() {
           {/* MINTA BANTUAN */}
           <Link
             to="/request-help"
-            className="menu-item-link"
+            className="profile-menu-item"
           >
 
-            <MdOutlineVolunteerActivism className="nav-icon" />
+            <MdOutlineVolunteerActivism className="profile-nav-icon" />
 
             <span>Minta Bantuan</span>
 
@@ -72,31 +87,34 @@ export default function ProfilPenyandangDisabilitas() {
           {/* CHAT */}
           <Link
             to="/chat"
-            className="menu-item-link"
+            className="profile-menu-item"
           >
 
-            <IoChatbubbleOutline className="nav-icon" />
+            <IoChatbubbleOutline className="profile-nav-icon" />
 
             <span>Chat</span>
 
           </Link>
 
           {/* PROFIL */}
-          <div className="menu-item">
+          <Link
+            to="/profil-disabilitas"
+            className="profile-menu-item active-menu"
+          >
 
-            <FaRegUser className="nav-icon" />
+            <FaRegUser className="profile-nav-icon" />
 
             <span>Profil</span>
 
-          </div>
+          </Link>
 
           {/* LOGOUT */}
           <Link
             to="/logout"
-            className="menu-item-link"
+            className="profile-menu-item"
           >
 
-            <IoLogOutOutline className="nav-icon" />
+            <IoLogOutOutline className="profile-nav-icon" />
 
             <span>Logout</span>
 
@@ -106,144 +124,106 @@ export default function ProfilPenyandangDisabilitas() {
 
       </div>
 
-      {/* PROFILE HEADER */}
-      <div className="profile-header">
-
-        <div className="profile-avatar">
-
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-            alt="profile"
-          />
-
-        </div>
-
-        <h2>Budi Prasetyo</h2>
-
-        <p>Status : Aktif</p>
-
-      </div>
-
       {/* CONTENT */}
       <div className="profile-content">
 
-        {/* LEFT SIDE */}
-        <div className="left-section">
+        {/* FOTO PROFIL */}
+        <div className="profile-image-section">
 
-          {/* LAYANAN */}
-          <div className="service-card">
-
-            <div className="card-title">
-
-              <FaRegClock />
-
-              <h2>Layanan Saat Ini:</h2>
-
-            </div>
-
-            <div className="service-item">
-
-              <p>
-                1. Pendampingan mobilitas - 22 Mar 2025
-              </p>
-
-              <span>✔ Selesai</span>
-
-            </div>
-
-            <div className="service-item">
-
-              <p>
-                2. Tutor Matematika - 20 Maret 2025
-              </p>
-
-              <span>✔ Selesai</span>
-
-            </div>
-
-          </div>
-
-          {/* BANTUAN */}
-          <div className="help-card">
-
-            <div className="card-title">
-
-              <FaHeart />
-
-              <h2>Bantuan yang diminta:</h2>
-
-            </div>
-
-            <p className="help-count">
-              Bantuan Diterima: 12
-            </p>
-
-            <button>Minta Bantuan Baru</button>
-
-            <button>Hubungi Relawan</button>
-
-          </div>
+          <FaUserCircle className="profile-icon" />
 
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="schedule-card">
+        {/* INFO */}
+        <div className="profile-info">
 
-          <div className="card-title">
+          <h1>{nama}</h1>
 
-            <FaCalendarAlt />
+          <p className="profile-status">
+            Status : Penyandang Disabilitas
+          </p>
 
-            <h2>Jadwal Terdekat:</h2>
+          {/* FORM */}
+          <div className="profile-form">
 
-          </div>
+            {/* NAMA */}
+            <div className="input-group">
 
-          <div className="schedule-item">
+              <label>Nama Lengkap</label>
 
-            <p>
-              1. Pendampingan mobilitas - 28 Mar 2025
-            </p>
+              <input
+                type="text"
+                value={nama}
+                onChange={(e) => setNama(e.target.value)}
+                disabled={!isEdit}
+              />
 
-            <button>Lihat Detail</button>
+            </div>
 
-          </div>
+            {/* EMAIL */}
+            <div className="input-group">
 
-          <div className="schedule-item">
+              <label>Email</label>
 
-            <p>
-              2. Tutor Matematika - 27 Mar 2025
-            </p>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={!isEdit}
+              />
 
-            <button>Lihat Detail</button>
+            </div>
 
-          </div>
+            {/* TELEPON */}
+            <div className="input-group">
 
-          <div className="schedule-item">
+              <label>No Telepon</label>
 
-            <p>
-              3. Sesi terapi wicara - 26 Mar 2025
-            </p>
+              <input
+                type="text"
+                value={telepon}
+                onChange={(e) => setTelepon(e.target.value)}
+                disabled={!isEdit}
+              />
 
-            <button>Lihat Detail</button>
+            </div>
 
-          </div>
+            {/* ALAMAT */}
+            <div className="input-group">
 
-          <div className="schedule-item">
+              <label>Alamat</label>
 
-            <p>
-              4. Bimbingan IT (React) - 26 Mar 2025
-            </p>
+              <textarea
+                value={alamat}
+                onChange={(e) => setAlamat(e.target.value)}
+                disabled={!isEdit}
+              />
 
-            <button>Lihat Detail</button>
+            </div>
 
-          </div>
+            {/* DISABILITAS */}
+            <div className="input-group">
 
-          <div className="schedule-item">
+              <label>Jenis Disabilitas</label>
 
-            <p>
-              5. Konsultasi Psikologi - 24 Mar 2025
-            </p>
+              <input
+                type="text"
+                value={disabilitas}
+                onChange={(e) => setDisabilitas(e.target.value)}
+                disabled={!isEdit}
+              />
 
-            <button>Lihat Detail</button>
+            </div>
+
+            {/* BUTTON */}
+            <button
+              className="save-btn"
+              onClick={handleEdit}
+            >
+
+              {isEdit ? "Simpan Profil" : "Edit Profil"}
+
+            </button>
 
           </div>
 
@@ -256,3 +236,5 @@ export default function ProfilPenyandangDisabilitas() {
   );
 
 }
+
+export default ProfilPenyandangDisabilitas;

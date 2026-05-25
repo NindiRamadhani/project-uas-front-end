@@ -1,77 +1,120 @@
-import React, { useState } from 'react';
-import './VerifikasiEmail.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./VerifikasiEmail.css";
 
 const VerifikasiEmail = () => {
-  const [otp, setOtp] = useState(['', '', '', '']);
+  const navigate = useNavigate();
+
+  const [kode, setKode] = useState(["", "", "", ""]);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (value, index) => {
     if (isNaN(value)) return;
-    const newOtp = [...otp];
-    newOtp[index] = value;
-    setOtp(newOtp);
 
-    if (value !== "" && index < 3) {
-      const nextInput = document.getElementById(`otp-${index + 1}`);
-      if (nextInput) nextInput.focus();
+    const newKode = [...kode];
+    newKode[index] = value;
+    setKode(newKode);
+
+    // pindah otomatis ke kotak berikutnya
+    if (value && index < 3) {
+      document.getElementById(`kode-${index + 1}`).focus();
     }
   };
 
-  const handleKeyDown = (e, index) => {
-    if (e.key === "Backspace" && !otp[index] && index > 0) {
-      const prevInput = document.getElementById(`otp-${index - 1}`);
-      if (prevInput) prevInput.focus();
+  const handleVerifikasi = () => {
+    const fullKode = kode.join("");
+
+    if (fullKode.length < 4) {
+      alert("Masukkan kode verifikasi!");
+      return;
     }
+
+    navigate("/reset");
+  };
+
+  const handleKirimUlang = () => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      alert("Kode berhasil dikirim ulang!");
+    }, 2000);
   };
 
   return (
-    <div className="v-page-container">
-      <div className="v-card-exact">
-        <button className="v-back-btn" onClick={() => window.history.back()}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="4">
-            <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+    <div className="verifikasi-container">
+      <div className="verifikasi-card">
+
+        {/* Tombol Back */}
+        <button
+          className="back-button"
+          onClick={() => navigate("/lupasandi")}
+        >
+          <span className="back-arrow"></span>
         </button>
 
-        <h2 className="v-title-text">Verifikasi Email</h2>
+        {/* Judul */}
+        <h1 className="verifikasi-title">Verifikasi Email</h1>
 
-        <div className="v-icon-wrapper">
-          <div className="v-icon-circle">
-            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 40 L12 85 L88 85 L88 40" stroke="black" strokeWidth="5.5" strokeLinejoin="round"/>
-              <rect x="25" y="22" width="50" height="45" fill="white" stroke="black" strokeWidth="5.5"/>
-              <line x1="35" y1="36" x2="65" y2="36" stroke="black" strokeWidth="4.5" />
-              <line x1="35" y1="48" x2="55" y2="48" stroke="black" strokeWidth="4.5" />
-              <path d="M12 40 L50 72 L88 40" fill="white" stroke="black" strokeWidth="5.5" strokeLinejoin="round"/>
-              <path d="M12 85 L50 72 L88 85" stroke="black" strokeWidth="5.5" strokeLinejoin="round"/>
-              <circle cx="78" cy="25" r="16" fill="white" stroke="black" strokeWidth="4.5"/>
-              <path d="M68 36 L62 46 L76 39" fill="white" stroke="black" strokeWidth="4.5" strokeLinejoin="round"/>
-              <circle cx="71" cy="25" r="2.2" fill="black"/>
-              <circle cx="78" cy="25" r="2.2" fill="black"/>
-              <circle cx="85" cy="25" r="2.2" fill="black"/>
+        {/* Icon */}
+        <div className="icon-wrapper">
+          <div className="icon-circle">
+            <svg
+              className="mail-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21.75 7.5v9A2.25 2.25 0 0119.5 18.75h-15A2.25 2.25 0 012.25 16.5v-9m19.5 0A2.25 2.25 0 0019.5 5.25h-15A2.25 2.25 0 002.25 7.5m19.5 0v.243a2.25 2.25 0 01-.876 1.78l-7.5 5.625a2.25 2.25 0 01-2.698 0L3.126 9.523a2.25 2.25 0 01-.876-1.78V7.5"
+              />
             </svg>
           </div>
         </div>
 
-        <div className="v-msg-box">
-          <p>Kode verifikasi telah terkirim ke email anda.</p>
-          <p>Silahkan masukkan kode</p>
-        </div>
+        {/* Text */}
+        <p className="verifikasi-text">
+          Kode verifikasi telah terkirim ke email anda.
+          <br />
+          Silahkan masukkan kode
+        </p>
 
-        <div className="v-otp-inputs">
-          {otp.map((data, index) => (
-            <input 
-              key={index} id={`otp-${index}`} type="text" maxLength="1" value={data}
+        {/* Input Kode */}
+        <div className="kode-container">
+          {kode.map((item, index) => (
+            <input
+              key={index}
+              id={`kode-${index}`}
+              type="text"
+              maxLength="1"
+              value={item}
               onChange={(e) => handleChange(e.target.value, index)}
-              onKeyDown={(e) => handleKeyDown(e, index)} 
-              className="v-otp-box" 
+              className="kode-input"
             />
           ))}
         </div>
 
-        <button className="v-submit-pink">Verifikasi</button>
+        {/* Tombol */}
+        <button
+          className="verifikasi-button"
+          onClick={handleVerifikasi}
+        >
+          Verifikasi
+        </button>
 
-        <p className="v-footer-msg">
-          Tidak menerima kode? <span className="v-resend-link">Kirim Ulang</span>
+        {/* Kirim ulang */}
+        <p className="resend-text">
+          Tidak menerima kode?{" "}
+          <span
+            className="resend-link"
+            onClick={handleKirimUlang}
+          >
+            {loading ? "Mengirim ulang..." : "Kirim Ulang"}
+          </span>
         </p>
       </div>
     </div>

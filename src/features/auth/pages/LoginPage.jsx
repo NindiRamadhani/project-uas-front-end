@@ -1,76 +1,55 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import "./LoginPage.css";
+import { Link, useNavigate } from "react-router-dom";
 
-function LoginPage() {
+const LoginPage = () => {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    username: '',
-    password: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   const handleLogin = () => {
-    alert(
-      `Login dengan:\nUsername: ${formData.username}\nPassword: ${formData.password}`
-    );
-
-    navigate('/');
+    navigate("/home");
   };
 
   return (
-    <div className="page">
-      <div className="login-box">
+    <div className="login-container">
+
+      <div className="login-card">
 
         <div className="login-header">
           <h1>LOGIN</h1>
         </div>
 
-        <div className="login-content">
-          <label>Username :</label>
+        <div className="login-body">
 
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-          />
+          <div className="input-group">
+            <label>Username :</label>
+            <input type="text" />
+          </div>
 
-          <label>Password :</label>
+          <div className="input-group">
+            <label>Password :</label>
+            <input type="password" />
+          </div>
 
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-
-          <p className="forgot-password">
-            <Link to="/lupasandi">Lupa Kata Sandi?</Link>
-          </p>
+          <Link to="/lupasandi" className="forgot-password">
+            Lupa Kata Sandi?
+          </Link>
 
           <button
-            className="login-button"
+            className="login-btn"
             onClick={handleLogin}
           >
             Masuk
           </button>
 
-          <button className="google-button">
+          <button className="google-btn">
             Masuk dengan Google
           </button>
+
         </div>
 
       </div>
+
     </div>
   );
-}
+};
 
 export default LoginPage;
