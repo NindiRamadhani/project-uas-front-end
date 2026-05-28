@@ -23,7 +23,7 @@ import HomePage from './features/home/pages/HomePage';
 
 import Chat from './features/chat/pages/Chat';
 
-import BerbagiInformasi from './features/Information/pages/BerbagiInformasi';
+import BerbagiInformasi from './features/information/pages/BerbagiInformasi';
 
 import RequestHelp from './MintaBantuan/RequestHelp';
 
