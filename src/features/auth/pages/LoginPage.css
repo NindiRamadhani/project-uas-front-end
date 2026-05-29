@@ -214,3 +214,15 @@ body{
   }
 
 }
+
+/* ERROR MESSAGE */
+
+.error-message{
+  color: red;
+
+  font-size: 15px;
+
+  margin-bottom: 18px;
+
+  text-align: center;
+}

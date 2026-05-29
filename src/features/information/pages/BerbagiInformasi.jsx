@@ -3,11 +3,15 @@ import { useNavigate } from "react-router-dom";
 import "./BerbagiInformasi.css";
 
 const BerbagiInformasi = () => {
+
   const navigate = useNavigate();
 
-  // GANTI ROLE:
-  // "relawan" atau "penyandang"
-  const role = "relawan";
+  // TEST ROLE SEMENTARA
+  // ubah jadi "relawan" atau "disabilitas"
+  localStorage.setItem("role", "disabilitas");
+
+  // AMBIL ROLE
+  const role = localStorage.getItem("role");
 
   const [judul, setJudul] = useState("");
   const [isi, setIsi] = useState("");
@@ -46,7 +50,10 @@ const BerbagiInformasi = () => {
   ];
 
   const handleKirim = () => {
+
+    // CEK ROLE
     if (role !== "relawan") {
+
       setPopup(
         "Maaf, informasi hanya dapat dibagikan oleh relawan."
       );
@@ -58,7 +65,9 @@ const BerbagiInformasi = () => {
       return;
     }
 
+    // VALIDASI INPUT
     if (!judul || !isi) {
+
       setPopup("Judul dan isi informasi wajib diisi!");
 
       setTimeout(() => {
@@ -79,16 +88,21 @@ const BerbagiInformasi = () => {
   };
 
   const handleBaca = (item) => {
+
     setSelectedInfo(item);
+
     setShowDetail(true);
   };
 
   return (
+
     <div className="berbagi-page">
 
       {/* HEADER */}
       <div className="berbagi-header">
+
         <h1>Berbagi Informasi</h1>
+
       </div>
 
       {/* CONTENT */}
@@ -100,6 +114,7 @@ const BerbagiInformasi = () => {
           <h2>Daftar Informasi</h2>
 
           {daftarInformasi.map((item) => (
+
             <div className="info-card" key={item.id}>
 
               <div className="info-left">
@@ -107,7 +122,9 @@ const BerbagiInformasi = () => {
                 <div className="info-icon"></div>
 
                 <div className="info-text">
+
                   <p>{item.title}</p>
+
                 </div>
 
               </div>
@@ -120,11 +137,12 @@ const BerbagiInformasi = () => {
               </button>
 
             </div>
+
           ))}
 
         </div>
 
-        {/* FORM KECIL */}
+        {/* FORM */}
         <div className="form-area">
 
           <div className="form-card">
@@ -173,9 +191,13 @@ const BerbagiInformasi = () => {
             </div>
 
             {popup && (
+
               <div className="popup-message">
+
                 {popup}
+
               </div>
+
             )}
 
           </div>
@@ -186,6 +208,7 @@ const BerbagiInformasi = () => {
 
       {/* MODAL DETAIL */}
       {showDetail && (
+
         <div className="modal-overlay">
 
           <div className="modal-box">
@@ -204,6 +227,7 @@ const BerbagiInformasi = () => {
           </div>
 
         </div>
+
       )}
 
     </div>

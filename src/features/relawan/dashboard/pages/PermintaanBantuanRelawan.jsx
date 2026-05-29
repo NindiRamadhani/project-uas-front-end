@@ -3,23 +3,15 @@ import { Link } from "react-router-dom";
 
 import "./PermintaanBantuanRelawan.css";
 
-import logoInkluSpace from "../../../../assets/logoinkluspace.png";
-
-import {
-  IoHomeOutline,
-  IoChatbubbleOutline,
-  IoLogOutOutline,
-} from "react-icons/io5";
-
-import { FaRegUser } from "react-icons/fa";
-
-import { MdOutlineVolunteerActivism } from "react-icons/md";
+import Navbar from "../../../components/Navbar/Navbar";
 
 import {
   FaUser,
   FaBook,
   FaCheckCircle,
 } from "react-icons/fa";
+
+import { MdOutlineVolunteerActivism } from "react-icons/md";
 
 function PermintaanBantuanRelawan() {
 
@@ -33,85 +25,8 @@ function PermintaanBantuanRelawan() {
 
     <div className="relawan-page">
 
-      {/* NAVBAR */}
-      <div className="relawan-navbar">
-
-        {/* LOGO */}
-        <div className="relawan-logo-section">
-
-          <img
-            src={logoInkluSpace}
-            alt="logo"
-            className="relawan-logo-img"
-          />
-
-          <p>InkluSpace</p>
-
-        </div>
-
-        {/* MENU */}
-        <div className="relawan-menu-section">
-
-          {/* BERANDA */}
-          <Link
-            to="/home"
-            className="relawan-menu-item"
-          >
-
-            <IoHomeOutline className="relawan-nav-icon" />
-
-            <span>Beranda</span>
-
-          </Link>
-
-          {/* PERMINTAAN */}
-          <div className="relawan-menu-item active-menu">
-
-            <MdOutlineVolunteerActivism className="relawan-nav-icon" />
-
-            <span>Permintaan Bantuan</span>
-
-          </div>
-
-          {/* CHAT */}
-          <Link
-            to="/chat"
-            className="relawan-menu-item"
-          >
-
-            <IoChatbubbleOutline className="relawan-nav-icon" />
-
-            <span>Chat</span>
-
-          </Link>
-
-          {/* PROFIL */}
-          <Link
-            to="/ProfilRelawan"
-            className="relawan-menu-item"
-          >
-
-            <FaRegUser className="relawan-nav-icon" />
-
-            <span>Profil</span>
-
-          </Link>
-
-          {/* LOGOUT */}
-          <Link
-            to="/logout"
-            className="relawan-menu-item"
-          >
-
-            <IoLogOutOutline className="relawan-nav-icon" />
-
-            <span>Logout</span>
-
-          </Link>
-
-        </div>
-
-      </div>
+      {/* NAVBAR BARU */}
+      <Navbar />
 
       {/* CONTENT */}
       <div className="permintaan-container">

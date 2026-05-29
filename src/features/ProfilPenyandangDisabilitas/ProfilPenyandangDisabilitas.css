@@ -19,76 +19,6 @@ body{
   min-height: 100vh;
 }
 
-/* NAVBAR */
-
-.profile-navbar{
-  width: 100%;
-
-  background: linear-gradient(
-    90deg,
-    #8d45e6,
-    #c06cff
-  );
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 18px 40px;
-}
-
-.profile-logo-section{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  color: white;
-
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.profile-logo-img{
-  width: 60px;
-  height: 60px;
-
-  object-fit: contain;
-}
-
-.profile-menu-section{
-  display: flex;
-  gap: 45px;
-}
-
-.profile-menu-item{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  color: white;
-
-  text-decoration: none;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  transition: 0.3s ease;
-}
-
-.profile-menu-item:hover{
-  transform: scale(1.05);
-}
-
-.profile-nav-icon{
-  font-size: 34px;
-
-  margin-bottom: 6px;
-}
-
-.active-menu{
-  opacity: 0.8;
-}
-
 /* CONTENT */
 
 .profile-content{
@@ -286,19 +216,6 @@ body{
 }
 
 @media screen and (max-width: 700px){
-
-  .profile-navbar{
-    flex-direction: column;
-
-    gap: 20px;
-  }
-
-  .profile-menu-section{
-    flex-wrap: wrap;
-    justify-content: center;
-
-    gap: 25px;
-  }
 
   .profile-content{
     width: 95%;

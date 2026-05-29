@@ -149,3 +149,25 @@
 .footer-login strong {
   cursor: pointer;
 }
+
+/* ERROR */
+
+.error-message{
+  color: red;
+
+  font-size: 14px;
+
+  margin-bottom: 18px;
+
+  text-align: center;
+}
+
+.field-error{
+  display: block;
+
+  margin-top: 5px;
+
+  color: red;
+
+  font-size: 13px;
+}

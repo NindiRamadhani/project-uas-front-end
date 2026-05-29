@@ -1,21 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import "./ProfilRelawan.css";
 
-import logoInkluSpace from "../../assets/logoinkluspace.png";
+import Navbar from "../components/Navbar/Navbar";
 
-import {
-  IoHomeOutline,
-  IoChatbubbleOutline,
-  IoLogOutOutline,
-} from "react-icons/io5";
-
-import { MdOutlineVolunteerActivism } from "react-icons/md";
-
-import { FaRegUser, FaUserCircle } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 
 function ProfilRelawan() {
+
+  // ROLE DARI LOCAL STORAGE
+  const role = localStorage.getItem("role");
+  const id = localStorage.getItem("id");
 
   // STATE DATA PROFIL
   const [nama, setNama] = useState("Andi Saputra");
@@ -41,88 +36,8 @@ function ProfilRelawan() {
 
     <div className="relawan-container">
 
-      {/* NAVBAR */}
-      <div className="relawan-navbar">
-
-        {/* LOGO */}
-        <div className="relawan-logo-section">
-
-          <img
-            src={logoInkluSpace}
-            alt="logo"
-            className="relawan-logo-img"
-          />
-
-          <p>InkluSpace</p>
-
-        </div>
-
-        {/* MENU */}
-        <div className="relawan-menu-section">
-
-          {/* BERANDA */}
-          <Link
-            to="/home"
-            className="relawan-menu-item"
-          >
-
-            <IoHomeOutline className="relawan-nav-icon" />
-
-            <span>Beranda</span>
-
-          </Link>
-
-          {/* PERMINTAAN BANTUAN */}
-          <Link
-            to="/PermintaanBantuan"
-            className="relawan-menu-item"
-          >
-
-            <MdOutlineVolunteerActivism className="relawan-nav-icon" />
-
-            <span>Permintaan Bantuan</span>
-
-          </Link>
-
-          {/* CHAT */}
-          <Link
-            to="/chat"
-            className="relawan-menu-item"
-          >
-
-            <IoChatbubbleOutline className="relawan-nav-icon" />
-
-            <span>Chat</span>
-
-          </Link>
-
-          {/* PROFIL */}
-          <Link
-            to="/profil-relawan"
-            className="relawan-menu-item active-menu"
-          >
-
-            <FaRegUser className="relawan-nav-icon" />
-
-            <span>Profil</span>
-
-          </Link>
-
-          {/* LOGOUT */}
-          <Link
-            to="/logout"
-            className="relawan-menu-item"
-          >
-
-            <IoLogOutOutline className="relawan-nav-icon" />
-
-            <span>Logout</span>
-
-          </Link>
-
-        </div>
-
-      </div>
+      {/* NAVBAR BARU */}
+      <Navbar />
 
       {/* CONTENT */}
       <div className="relawan-content">
@@ -140,7 +55,7 @@ function ProfilRelawan() {
           <h1>{nama}</h1>
 
           <p className="relawan-status">
-            Status : Relawan
+            Status : {role || "Relawan"}
           </p>
 
           {/* FORM */}

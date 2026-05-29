@@ -1,35 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
 import "./Chat.css";
 
-import logoInkluSpace from "../../../assets/logoinkluspace.png";
+import Navbar from "../../components/Navbar/Navbar";
 
-import {
-  IoHomeOutline,
-  IoChatbubbleOutline,
-  IoLogOutOutline,
-  IoSend,
-} from "react-icons/io5";
-
-import { MdOutlineVolunteerActivism } from "react-icons/md";
-
-import { FaRegUser, FaUserCircle } from "react-icons/fa";
-
-/*
-========================================
-UBAH ROLE DISINI
-========================================
-
-"disabilitas"
-atau
-"relawan"
-
-*/
+import { IoSend } from "react-icons/io5";
+import { FaUserCircle } from "react-icons/fa";
 
 function Chat() {
 
-  const role = "disabilitas";
+  const role = localStorage.getItem("role");
+  const id = localStorage.getItem("id");
+  const name = localStorage.getItem("name");
 
   const [message, setMessage] = useState("");
 
@@ -67,134 +48,8 @@ function Chat() {
 
     <div className="chat-container">
 
-      {/* NAVBAR */}
-
-      <div className="chat-navbar">
-
-        {/* LOGO */}
-
-        <div className="chat-logo-section">
-
-          <img
-            src={logoInkluSpace}
-            alt="logo"
-            className="chat-logo-img"
-          />
-
-          <p>InkluSpace</p>
-
-        </div>
-
-        {/* MENU */}
-
-        <div className="chat-menu-section">
-
-          {/* BERANDA */}
-
-          <Link
-            to="/home"
-            className="chat-menu-item"
-          >
-
-            <IoHomeOutline className="chat-nav-icon" />
-
-            <span>Beranda</span>
-
-          </Link>
-
-          {/* ROLE MENU */}
-
-          {
-            role === "disabilitas" ? (
-
-              <Link
-                to="/request-help"
-                className="chat-menu-item"
-              >
-
-                <MdOutlineVolunteerActivism className="chat-nav-icon" />
-
-                <span>Minta Bantuan</span>
-
-              </Link>
-
-            ) : (
-
-              <Link
-                to="/PermintaanBantuan"
-                className="chat-menu-item"
-              >
-
-                <MdOutlineVolunteerActivism className="chat-nav-icon" />
-
-                <span>Permintaan Bantuan</span>
-
-              </Link>
-
-            )
-          }
-
-          {/* CHAT */}
-
-          <Link
-            to="/chat"
-            className="chat-menu-item active-chat"
-          >
-
-            <IoChatbubbleOutline className="chat-nav-icon" />
-
-            <span>Chat</span>
-
-          </Link>
-
-          {/* PROFIL */}
-
-          {
-            role === "disabilitas" ? (
-
-              <Link
-                to="/profil-disabilitas"
-                className="chat-menu-item"
-              >
-
-                <FaRegUser className="chat-nav-icon" />
-
-                <span>Profil</span>
-
-              </Link>
-
-            ) : (
-
-              <Link
-                to="/ProfilRelawan"
-                className="chat-menu-item"
-              >
-
-                <FaRegUser className="chat-nav-icon" />
-
-                <span>Profil</span>
-
-              </Link>
-
-            )
-          }
-
-          {/* LOGOUT */}
-
-          <Link
-            to="/logout"
-            className="chat-menu-item"
-          >
-
-            <IoLogOutOutline className="chat-nav-icon" />
-
-            <span>Logout</span>
-
-          </Link>
-
-        </div>
-
-      </div>
+      {/* NAVBAR BARU */}
+      <Navbar />
 
       {/* CHAT CONTENT */}
 

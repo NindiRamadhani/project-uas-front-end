@@ -3,21 +3,15 @@ import { Link } from "react-router-dom";
 
 import "./HomePage.css";
 
-import logoInkluSpace from "../../../assets/logoinkluspace.png";
+/* NAVBAR BARU */
+import Navbar from "../../components/Navbar/Navbar";
+
 import heroImage from "../../../assets/inkluspace.jpeg";
 
 import galleryImage1 from "../../../assets/incluspace2.jpeg";
 import galleryImage2 from "../../../assets/incluspace3.jpeg";
 
-import {
-  IoHomeOutline,
-  IoChatbubbleOutline,
-  IoLogOutOutline,
-} from "react-icons/io5";
-
 import { MdOutlineVolunteerActivism } from "react-icons/md";
-
-import { FaRegUser } from "react-icons/fa";
 
 import {
   HiOutlineUserGroup,
@@ -33,87 +27,16 @@ import {
 
 function HomePage() {
 
+  // ROLE
+  const role = localStorage.getItem("role");
+  const name = localStorage.getItem("name");
+
   return (
 
     <div className="home-container">
 
-      {/* NAVBAR */}
-      <div className="navbar">
-
-        <div className="logo-section">
-
-          <img
-            src={logoInkluSpace}
-            alt="logo"
-            className="logo-img"
-          />
-
-          <p>InkluSpace</p>
-
-        </div>
-
-        <div className="menu-section">
-
-          {/* BERANDA */}
-          <div className="menu-item">
-
-            <IoHomeOutline className="nav-icon" />
-
-            <span>Beranda</span>
-
-          </div>
-
-          {/* MINTA BANTUAN */}
-          <Link
-            to="/request-help"
-            className="menu-item-link"
-          >
-
-            <MdOutlineVolunteerActivism className="nav-icon" />
-
-            <span>Minta Bantuan</span>
-
-          </Link>
-
-          {/* CHAT */}
-          <Link
-            to="/chat"
-            className="menu-item-link"
-          >
-
-            <IoChatbubbleOutline className="nav-icon" />
-
-            <span>Chat</span>
-
-          </Link>
-
-          {/* PROFIL */}
-          <Link
-            to="/profil-disabilitas"
-            className="menu-item-link"
-          >
-
-            <FaRegUser className="nav-icon" />
-
-            <span>Profil</span>
-
-          </Link>
-
-          {/* LOGOUT */}
-          <Link
-            to="/logout"
-            className="menu-item-link"
-          >
-
-            <IoLogOutOutline className="nav-icon" />
-
-            <span>Logout</span>
-
-          </Link>
-
-        </div>
-
-      </div>
+      {/* NAVBAR BARU */}
+      <Navbar />
 
       {/* HERO */}
       <div className="hero-section">
@@ -152,17 +75,33 @@ function HomePage() {
 
       <div className="fitur-container">
 
-        {/* MINTA BANTUAN */}
-        <Link
-          to="/request-help"
-          className="fitur-card purple"
-        >
+        {/* ROLE DISABILITAS */}
+        {role === "disabilitas" && (
+          <Link
+            to="/request-help"
+            className="fitur-card purple"
+          >
 
-          <MdOutlineVolunteerActivism className="fitur-icon" />
+            <MdOutlineVolunteerActivism className="fitur-icon" />
 
-          <p>Minta Bantuan</p>
+            <p>Minta Bantuan</p>
 
-        </Link>
+          </Link>
+        )}
+
+        {/* ROLE RELAWAN */}
+        {role === "relawan" && (
+          <Link
+            to="/PermintaanBantuan"
+            className="fitur-card purple"
+          >
+
+            <MdOutlineVolunteerActivism className="fitur-icon" />
+
+            <p>Permintaan Bantuan</p>
+
+          </Link>
+        )}
 
         {/* BERBAGI CERITA */}
         <Link

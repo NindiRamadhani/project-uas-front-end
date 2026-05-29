@@ -19,76 +19,6 @@ body{
   min-height: 100vh;
 }
 
-/* NAVBAR */
-
-.relawan-navbar{
-  width: 100%;
-
-  background: linear-gradient(
-    90deg,
-    #8d45e6,
-    #c06cff
-  );
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 18px 40px;
-}
-
-.relawan-logo-section{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  color: white;
-
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.relawan-logo-img{
-  width: 60px;
-  height: 60px;
-
-  object-fit: contain;
-}
-
-.relawan-menu-section{
-  display: flex;
-  gap: 45px;
-}
-
-.relawan-menu-item{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  text-decoration: none;
-
-  color: white;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  transition: 0.3s ease;
-}
-
-.relawan-menu-item:hover{
-  transform: scale(1.05);
-}
-
-.relawan-nav-icon{
-  font-size: 34px;
-
-  margin-bottom: 6px;
-}
-
-.active-menu{
-  opacity: 0.8;
-}
-
 /* CONTENT */
 
 .permintaan-container{
@@ -498,17 +428,6 @@ body{
 }
 
 @media screen and (max-width: 700px){
-
-  .relawan-navbar{
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .relawan-menu-section{
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-  }
 
   .permintaan-top{
     flex-direction: column;

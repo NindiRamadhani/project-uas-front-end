@@ -1,19 +1,10 @@
 // RequestHelp.jsx
 
-import { Link } from "react-router-dom";
-
 import "./RequestHelp.css";
 
-import logoInkluSpace from "../assets/logoinkluspace.png";
+import Navbar from "../features/components/Navbar/Navbar";
+
 import accessibleBanner from "../assets/accessible.jpeg";
-
-import {
-  IoHomeOutline,
-  IoChatbubbleOutline,
-  IoLogOutOutline,
-} from "react-icons/io5";
-
-import { FaRegUser } from "react-icons/fa";
 
 import { MdOutlineVolunteerActivism } from "react-icons/md";
 
@@ -23,83 +14,8 @@ export default function RequestHelp() {
 
     <div className="request-page">
 
-      {/* NAVBAR */}
-      <div className="navbar">
-
-        <div className="logo-section">
-
-          <img
-            src={logoInkluSpace}
-            alt="logo"
-            className="logo-img"
-          />
-
-          <p>InkluSpace</p>
-
-        </div>
-
-        <div className="menu-section">
-
-          {/* BERANDA */}
-          <Link
-            to="/home"
-            className="menu-item-link"
-          >
-
-            <IoHomeOutline className="nav-icon" />
-
-            <span>Beranda</span>
-
-          </Link>
-
-          {/* MINTA BANTUAN */}
-          <div className="menu-item">
-
-            <MdOutlineVolunteerActivism className="nav-icon" />
-
-            <span>Minta Bantuan</span>
-
-          </div>
-
-          {/* CHAT */}
-          <Link
-            to="/chat"
-            className="menu-item-link"
-          >
-
-            <IoChatbubbleOutline className="nav-icon" />
-
-            <span>Chat</span>
-
-          </Link>
-
-          {/* PROFIL */}
-          <Link
-            to="/profil-disabilitas"
-            className="menu-item-link"
-          >
-
-            <FaRegUser className="nav-icon" />
-
-            <span>Profil</span>
-
-          </Link>
-
-          {/* LOGOUT */}
-          <Link
-            to="/logout"
-            className="menu-item-link"
-          >
-
-            <IoLogOutOutline className="nav-icon" />
-
-            <span>Logout</span>
-
-          </Link>
-
-        </div>
-
-      </div>
+      {/* NAVBAR BARU */}
+      <Navbar />
 
       {/* CONTENT */}
       <div className="content">

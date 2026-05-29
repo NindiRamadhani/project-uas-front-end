@@ -19,76 +19,6 @@ body{
   min-height: 100vh;
 }
 
-/* NAVBAR */
-
-.chat-navbar{
-  width: 100%;
-
-  background: linear-gradient(
-    90deg,
-    #8d45e6,
-    #c06cff
-  );
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 18px 40px;
-}
-
-.chat-logo-section{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  color: white;
-
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.chat-logo-img{
-  width: 55px;
-  height: 55px;
-
-  object-fit: contain;
-}
-
-.chat-menu-section{
-  display: flex;
-  gap: 40px;
-}
-
-.chat-menu-item{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  text-decoration: none;
-
-  color: white;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  transition: 0.3s ease;
-}
-
-.chat-menu-item:hover{
-  transform: scale(1.05);
-}
-
-.chat-nav-icon{
-  font-size: 32px;
-
-  margin-bottom: 5px;
-}
-
-.active-chat{
-  opacity: 0.8;
-}
-
 /* CONTENT */
 
 .chat-content{
@@ -298,18 +228,6 @@ body{
 
 @media screen and (max-width: 900px){
 
-  .chat-navbar{
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .chat-menu-section{
-    flex-wrap: wrap;
-    justify-content: center;
-
-    gap: 20px;
-  }
-
   .chat-header-user h3{
     font-size: 22px;
   }
@@ -321,10 +239,6 @@ body{
 }
 
 @media screen and (max-width: 600px){
-
-  .chat-navbar{
-    padding: 20px;
-  }
 
   .chat-content{
     width: 95%;

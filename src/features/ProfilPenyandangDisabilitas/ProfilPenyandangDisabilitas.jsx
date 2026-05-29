@@ -1,21 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import "./ProfilPenyandangDisabilitas.css";
 
-import logoInkluSpace from "../../assets/logoinkluspace.png";
+import Navbar from "../components/Navbar/Navbar";
 
-import {
-  IoHomeOutline,
-  IoChatbubbleOutline,
-  IoLogOutOutline,
-} from "react-icons/io5";
-
-import { MdOutlineVolunteerActivism } from "react-icons/md";
-
-import { FaRegUser, FaUserCircle } from "react-icons/fa";
+import { FaUserCircle } from "react-icons/fa";
 
 function ProfilPenyandangDisabilitas() {
+
+  // ROLE DARI LOCAL STORAGE
+  const role = localStorage.getItem("role");
+  const id = localStorage.getItem("id");
 
   // STATE DATA PROFIL
   const [nama, setNama] = useState("Budi Prasetyo");
@@ -41,88 +36,8 @@ function ProfilPenyandangDisabilitas() {
 
     <div className="profile-container">
 
-      {/* NAVBAR */}
-      <div className="profile-navbar">
-
-        {/* LOGO */}
-        <div className="profile-logo-section">
-
-          <img
-            src={logoInkluSpace}
-            alt="logo"
-            className="profile-logo-img"
-          />
-
-          <p>InkluSpace</p>
-
-        </div>
-
-        {/* MENU */}
-        <div className="profile-menu-section">
-
-          {/* BERANDA */}
-          <Link
-            to="/home"
-            className="profile-menu-item"
-          >
-
-            <IoHomeOutline className="profile-nav-icon" />
-
-            <span>Beranda</span>
-
-          </Link>
-
-          {/* MINTA BANTUAN */}
-          <Link
-            to="/request-help"
-            className="profile-menu-item"
-          >
-
-            <MdOutlineVolunteerActivism className="profile-nav-icon" />
-
-            <span>Minta Bantuan</span>
-
-          </Link>
-
-          {/* CHAT */}
-          <Link
-            to="/chat"
-            className="profile-menu-item"
-          >
-
-            <IoChatbubbleOutline className="profile-nav-icon" />
-
-            <span>Chat</span>
-
-          </Link>
-
-          {/* PROFIL */}
-          <Link
-            to="/profil-disabilitas"
-            className="profile-menu-item active-menu"
-          >
-
-            <FaRegUser className="profile-nav-icon" />
-
-            <span>Profil</span>
-
-          </Link>
-
-          {/* LOGOUT */}
-          <Link
-            to="/logout"
-            className="profile-menu-item"
-          >
-
-            <IoLogOutOutline className="profile-nav-icon" />
-
-            <span>Logout</span>
-
-          </Link>
-
-        </div>
-
-      </div>
+      {/* NAVBAR BARU */}
+      <Navbar />
 
       {/* CONTENT */}
       <div className="profile-content">
@@ -140,7 +55,7 @@ function ProfilPenyandangDisabilitas() {
           <h1>{nama}</h1>
 
           <p className="profile-status">
-            Status : Penyandang Disabilitas
+            Status : {role || "Penyandang Disabilitas"}
           </p>
 
           {/* FORM */}

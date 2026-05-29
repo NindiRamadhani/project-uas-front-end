@@ -20,75 +20,6 @@ body{
   background: #ececec;
 }
 
-/* ================= NAVBAR ================= */
-
-.request-page .navbar{
-  width: 100%;
-
-  background: linear-gradient(
-    90deg,
-    #8d45e6,
-    #b85cff
-  );
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 14px 40px;
-}
-
-.request-page .logo-section{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  color: white;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.request-page .logo-img{
-  width: 55px;
-  height: 55px;
-
-  object-fit: contain;
-}
-
-.request-page .menu-section{
-  display: flex;
-  gap: 45px;
-}
-
-.request-page .menu-item,
-.request-page .menu-item-link{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  color: white;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  text-decoration: none;
-
-  transition: 0.3s ease;
-}
-
-.request-page .menu-item:hover,
-.request-page .menu-item-link:hover{
-  transform: scale(1.05);
-}
-
-.request-page .nav-icon{
-  font-size: 35px;
-
-  margin-bottom: 5px;
-}
-
 /* ================= CONTENT ================= */
 
 .content{
@@ -337,10 +268,6 @@ body{
   .form-section,
   .steps-card{
     width: 100%;
-  }
-
-  .menu-section{
-    gap: 25px;
   }
 
   .header-section p{
