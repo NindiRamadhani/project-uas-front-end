@@ -125,7 +125,7 @@ function App() {
         />
 
         <Route
-          path="/PermintaanBantuan"
+          path="/home-relawan"
           element={<PermintaanBantuanRelawan />}
         />
         <Route
