@@ -134,7 +134,7 @@ function App() {
         />
 
         <Route
-          path="/admin"
+          path="/dashboard-admin"
           element={<AdminDashboard/>}
         />
       </Routes>
