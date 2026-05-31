@@ -50,9 +50,9 @@ const LoginPage = () => {
 
       // REDIRECT BERDASARKAN ROLE
       if (user.role === 'relawan') {
-        navigate('/home-relawan');
+        navigate('/home');
       } else if (user.role === 'disabilitas') {
-        navigate('/home-disabilitas');
+        navigate('/home');
       } else if (user.role === 'admin') {
         // ✨ Khusus jika login sebagai admin, lempar ke halaman dashboard admin
         // Silakan ganti '/dashboard-admin' sesuai dengan nama path route admin kalian
