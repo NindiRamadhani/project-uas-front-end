@@ -8,27 +8,16 @@ import {
 } from 'react-router-dom';
 
 import LandingPage from './features/landing/pages/LandingPage';
-
 import RegisterPage from './features/auth/pages/RegisterPage';
-
 import LoginPage from './features/auth/pages/LoginPage';
-
 import LupaKataSandi from './features/auth/pages/LupaKataSandi';
-
 import VerifikasiEmail from './features/auth/pages/VerifikasiEmail';
-
 import ResetPassword from './features/auth/pages/ResetPassword';
-
 import HomePage from './features/home/pages/HomePage';
-
 import Chat from './features/chat/pages/Chat';
-
 import BerbagiInformasi from './features/information/pages/BerbagiInformasi';
-
 import RequestHelp from './MintaBantuan/RequestHelp';
-
 import BerbagiCerita from './features/stories/pages/BerbagiCerita';
-
 import Logout from './features/logout/pages/Logout';
 import PermintaanBantuanRelawan from './features/relawan/dashboard/pages/PermintaanBantuanRelawan';
 
@@ -88,9 +77,9 @@ function App() {
           element={<HomePage />}
         />
 
-        {/* CHAT */}
+        {/* CHAT (Sudah Diperbaiki Menggunakan Parameter ID Dinamis) */}
         <Route
-          path="/chat"
+          path="/chat/:help_request_id"
           element={<Chat />}
         />
 
