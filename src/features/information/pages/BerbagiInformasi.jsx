@@ -6,9 +6,6 @@ const BerbagiInformasi = () => {
 
   const navigate = useNavigate();
 
-  // TEST ROLE SEMENTARA
-  // ubah jadi "relawan" atau "disabilitas"
-  localStorage.setItem("role", "disabilitas");
 
   // AMBIL ROLE
   const role = localStorage.getItem("role");
