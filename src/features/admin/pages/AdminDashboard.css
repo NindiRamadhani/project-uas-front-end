@@ -1,239 +1,315 @@
-/* AdminDashboard.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
   background: #f5f6fb;
 }
 
-.admin-container{
+.admin-container {
   width: 100%;
   min-height: 100vh;
-
   padding: 35px;
 }
 
-/* HEADER */
+.admin-loading {
+  text-align: center;
+  padding-top: 100px;
+  font-size: 20px;
+  color: #7b2cff;
+}
 
-.admin-header{
+/* HEADER SECTION */
+.admin-header {
   margin-bottom: 35px;
 }
 
-.admin-header h1{
+.admin-header h1 {
   font-size: 42px;
   font-weight: 700;
-
   color: #1b1b1b;
-
   margin-bottom: 8px;
 }
 
-.admin-header p{
+.admin-header p {
   font-size: 18px;
-
   color: #6c6c6c;
 }
 
-/* CARD */
-
-.admin-card-container{
+/* CARD STATISTIK */
+.admin-card-container {
   display: flex;
   gap: 25px;
-
   margin-bottom: 35px;
 }
 
-.admin-card{
+.admin-card {
   flex: 1;
-
   background: white;
-
   border-radius: 22px;
-
   padding: 28px;
-
   display: flex;
   align-items: center;
   gap: 20px;
-
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.card-icon{
+.clickable-card {
+  cursor: pointer;
+}
+
+.clickable-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.card-icon {
   width: 80px;
   height: 80px;
-
   border-radius: 50%;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   color: white;
-
   font-size: 35px;
 }
 
-.purple-card{
-  background: linear-gradient(
-    135deg,
-    #7b2cff,
-    #a855f7
-  );
-}
+.purple-card { background: linear-gradient(135deg, #7b2cff, #a855f7); }
+.green-card { background: linear-gradient(135deg, #00b86b, #38ef7d); }
+.orange-card { background: linear-gradient(135deg, #ff8c00, #ffb347); }
 
-.green-card{
-  background: linear-gradient(
-    135deg,
-    #00b86b,
-    #38ef7d
-  );
-}
-
-.orange-card{
-  background: linear-gradient(
-    135deg,
-    #ff8c00,
-    #ffb347
-  );
-}
-
-.admin-card h3{
+.admin-card h3 {
   font-size: 18px;
   font-weight: 600;
-
   color: #555;
-
   margin-bottom: 8px;
 }
 
-.admin-card h2{
+.admin-card h2 {
   font-size: 38px;
   font-weight: 700;
-
   color: #111;
-
   margin-bottom: 5px;
 }
 
-.admin-card span{
-  color: #00a651;
+.card-link-disabled { color: #888; font-size: 13px; }
+.card-link-active { color: #7b2cff; font-weight: 600; font-size: 13px; }
 
-  font-size: 15px;
-}
-
-/* TABLE */
-
-.table-section{
+/* GRAPH SECTION */
+.chart-section {
   background: white;
-
   padding: 30px;
-
   border-radius: 22px;
-
   margin-bottom: 35px;
-
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-.table-section h2{
+.chart-section h2 {
   margin-bottom: 25px;
-
   font-size: 28px;
-
   color: #7b2cff;
 }
 
-table{
-  width: 100%;
+.chart-wrapper { width: 100%; height: 300px; }
 
+/* TABLE GENERAL */
+.table-section {
+  background: white;
+  padding: 30px;
+  border-radius: 22px;
+  margin-bottom: 35px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.table-section h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #7b2cff;
+}
+
+table {
+  width: 100%;
   border-collapse: collapse;
 }
 
-th{
+th {
   text-align: left;
-
   padding: 18px;
-
   background: #f4f4f4;
-
   font-size: 16px;
+  color: #333;
 }
 
-td{
+td {
   padding: 18px;
-
   border-bottom: 1px solid #e7e7e7;
+  color: #444;
 }
 
-.status{
-  padding: 8px 15px;
-
+.status {
+  padding: 6px 14px;
   border-radius: 20px;
-
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 }
 
-.aktif{
-  background: #d9ffe8;
+.aktif { background: #d9ffe8; color: #00a651; }
+.nonaktif { background: #ffe0e0; color: #ff3b3b; }
+.badge-id { background: #f0f0f0; padding: 4px 10px; border-radius: 6px; font-weight: 600; font-size: 13px; }
 
-  color: #00a651;
+/* ==========================================
+   STRUKTUR CSS MODAL POP-UP & TOMBOL AKSI
+   ========================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-out;
 }
 
-.nonaktif{
-  background: #ffe0e0;
-
-  color: #ff3b3b;
-}
-
-/* AKTIVITAS */
-
-.aktivitas-section{
+.modal-content {
   background: white;
-
+  width: 80%;
+  max-width: 1000px;
+  max-height: 85vh;
+  border-radius: 24px;
   padding: 30px;
-
-  border-radius: 22px;
-
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-out;
 }
 
-.aktivitas-section h2{
-  margin-bottom: 20px;
-
-  font-size: 28px;
-
-  color: #7b2cff;
-}
-
-.aktivitas-card{
+.modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+}
 
+.modal-header h2 {
+  color: #1b1b1b;
+  font-size: 24px;
+}
+
+.close-btn {
+  background: #f5f6fb;
+  border: none;
+  font-size: 20px;
+  color: #555;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #ffe0e0;
+  color: #ff3b3b;
+}
+
+.modal-body {
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.modal-table-wrapper {
+  width: 100%;
+}
+
+/* ACTION BUTTONS DESIGN */
+.action-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-action:active {
+  transform: scale(0.95);
+}
+
+.btn-approve {
+  background: #00b86b;
+  color: white;
+}
+
+.btn-approve:hover {
+  background: #009656;
+}
+
+.btn-reject {
+  background: #ff3b3b;
+  color: white;
+}
+
+.btn-reject:hover {
+  background: #d62f2f;
+}
+
+/* ANIMASI EFFECT */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* AKTIVITAS */
+.aktivitas-section {
+  background: white;
+  padding: 30px;
+  border-radius: 22px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.aktivitas-section h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #7b2cff;
+}
+
+.aktivitas-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 18px 0;
-
   border-bottom: 1px solid #ececec;
 }
 
-.aktivitas-card p{
-  font-size: 17px;
-  font-weight: 500;
-
-  color: #222;
-}
-
-.aktivitas-card span{
-  color: #888;
-
-  font-size: 14px;
-}
+.aktivitas-card p { font-size: 17px; font-weight: 500; color: #222; }
+.aktivitas-card span { color: #00a651; font-size: 14px; font-weight: 600; }
