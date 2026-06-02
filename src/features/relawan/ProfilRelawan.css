@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   font-family: 'Poppins', sans-serif;
 }
 
@@ -13,60 +12,50 @@ body{
 }
 
 /* CONTAINER */
-
 .relawan-container{
   width: 100%;
   min-height: 100vh;
 }
 
 /* CONTENT */
-
 .relawan-content{
   width: 90%;
-
+  max-width: 800px; /* Membatasi lebar kotak putih agar proporsional */
   margin: 50px auto;
-
   background: white;
-
   border-radius: 35px;
-
   padding: 60px;
-
+  
+  /* Membuat susunan vertikal (atas-bawah) */
   display: flex;
-  gap: 70px;
-
+  flex-direction: column; 
+  align-items: center;    /* Menengahkan seluruh elemen di dalam kartu */
+  gap: 25px;              /* Jarak antara komponen foto dan info */
+  
   box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
 /* FOTO PROFIL */
-
 .relawan-image-section{
-  width: 40%;
-
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .relawan-icon{
-  font-size: 340px;
-
+  font-size: 150px;       /* Ukuran ikon netral (tidak kebesaran) */
   color: #b56cff;
-
   background: linear-gradient(
     180deg,
     #f7eeff,
     #ead7ff
   );
-
   border-radius: 50%;
-
-  padding: 18px;
-
+  padding: 10px;          /* Jarak padding disesuaikan agar lingkaran rapi */
   box-shadow:
     0 10px 25px rgba(181,108,255,0.25),
     0 5px 15px rgba(0,0,0,0.1);
-
   transition: 0.3s ease;
 }
 
@@ -75,168 +64,120 @@ body{
 }
 
 /* INFO */
-
 .relawan-info{
-  flex: 1;
+  width: 100%;
+  text-align: center;     /* Menengahkan teks nama Felicia/Andi & status */
 }
 
 .relawan-info h1{
-  font-size: 52px;
+  font-size: 42px;        /* Sedikit disesuaikan agar seimbang dengan foto 150px */
   font-weight: 700;
-
   color: #333;
-
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .relawan-status{
-  font-size: 24px;
+  font-size: 20px;
   color: #777;
-
-  margin-bottom: 45px;
+  margin-bottom: 35px;
 }
 
 /* FORM */
-
 .relawan-form{
   width: 100%;
+  text-align: left;       /* Mengembalikan form text agar tetap rapi rata kiri */
 }
 
 .input-group{
   display: flex;
   flex-direction: column;
-
   margin-bottom: 28px;
 }
 
 .input-group label{
   font-size: 19px;
   font-weight: 600;
-
   color: #444;
-
   margin-bottom: 10px;
 }
 
 .input-group input,
 .input-group textarea{
   width: 100%;
-
   padding: 18px;
-
   border-radius: 18px;
-
   border: 2px solid #e5e5e5;
-
   background-color: #f8f8f8;
-
   font-size: 17px;
-
   outline: none;
-
   transition: 0.3s ease;
 }
 
 .input-group textarea{
   height: 130px;
-
   resize: none;
 }
 
 .input-group input:focus,
 .input-group textarea:focus{
   border-color: #b56cff;
-
   background-color: white;
-
   box-shadow: 0 4px 12px rgba(181,108,255,0.15);
 }
 
 /* DISABLED INPUT */
-
 .input-group input:disabled,
 .input-group textarea:disabled{
   background-color: #f1f1f1;
-
   color: #666;
-
   cursor: not-allowed;
 }
 
 /* BUTTON */
-
 .save-btn{
   background: linear-gradient(
     90deg,
     #8d45e6,
     #c06cff
   );
-
   color: white;
-
   border: none;
-
   padding: 18px 38px;
-
   border-radius: 18px;
-
   font-size: 18px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition: 0.3s ease;
+  width: 100%;            /* Tombol memanjang penuh agar terlihat kokoh di bawah */
 }
 
 .save-btn:hover{
   transform: translateY(-3px);
-
   box-shadow: 0 8px 18px rgba(141,69,230,0.3);
 }
 
 /* RESPONSIVE */
-
 @media screen and (max-width: 1000px){
-
   .relawan-content{
-    flex-direction: column;
-    align-items: center;
-
     padding: 45px;
   }
-
-  .relawan-image-section{
-    width: 100%;
-  }
-
   .relawan-icon{
-    font-size: 280px;
+    font-size: 140px;
   }
-
 }
 
 @media screen and (max-width: 700px){
-
   .relawan-content{
     width: 95%;
-
     padding: 30px;
   }
-
   .relawan-info h1{
-    font-size: 36px;
-
-    text-align: center;
+    font-size: 32px;
   }
-
   .relawan-status{
-    text-align: center;
-
-    font-size: 20px;
+    font-size: 18px;
   }
-
   .relawan-icon{
-    font-size: 220px;
+    font-size: 120px;
   }
-
 }
