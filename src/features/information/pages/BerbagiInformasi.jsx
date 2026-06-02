@@ -5,9 +5,7 @@ import "./BerbagiInformasi.css";
 
 const BerbagiInformasi = () => {
   const navigate = useNavigate();
-  const role = localStorage.getItem("role");
   const userId = localStorage.getItem("user_id") || 1; 
-  const token = localStorage.getItem("token"); // Ambil token login sanctum
 
   const [judul, setJudul] = useState("");
   const [isi, setIsi] = useState("");
@@ -16,10 +14,9 @@ const BerbagiInformasi = () => {
   const [selectedInfo, setSelectedInfo] = useState({ title: "", content: "" });
   const [daftarInformasi, setDaftarInformasi] = useState([]);
 
-  // URL disesuaikan dengan port 9000 dari PHP Herd & endpoint 'informations' dari Laravel Resource
+  // PENTING: Pastikan port 9000 ini sama dengan yang tertera di terminal PHP Herd kamu!
   const API_URL = "http://127.0.0.1:9000/api/informations";
 
-  // 1. AMBIL DATA DARI DATABASE SAAT HALAMAN DIBUKA
   useEffect(() => {
     fetchInformasi();
   }, []);
@@ -35,14 +32,7 @@ const BerbagiInformasi = () => {
     }
   };
 
-  // 2. KIRIM DATA BARU KE DATABASE
   const handleKirim = async () => {
-    if (role !== "relawan") {
-      setPopup("Maaf, informasi hanya dapat dibagikan oleh relawan.");
-      setTimeout(() => setPopup(""), 3000);
-      return;
-    }
-
     if (!judul.trim() || !isi.trim()) {
       setPopup("Judul dan isi informasi wajib diisi!");
       setTimeout(() => setPopup(""), 3000);
@@ -56,22 +46,19 @@ const BerbagiInformasi = () => {
         content: isi.trim()
       };
 
-      // Tembak API POST Laravel dengan menyertakan Bearer Token di Header
-      const response = await axios.post(API_URL, dataDikirim, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
+      console.log("Data yang mencoba dikirim:", dataDikirim);
+
+      const response = await axios.post(API_URL, dataDikirim);
 
       if (response.data.success) {
         setPopup("Informasi berhasil disimpan ke database!");
-        fetchInformasi(); // Panggil ulang data agar langsung muncul di daftar kiri
+        fetchInformasi(); 
         setJudul("");
         setIsi("");
       }
     } catch (error) {
-      console.error("Gagal menyimpan data:", error);
-      setPopup("Terjadi kesalahan sistem atau Anda belum login.");
+      console.error("Error Detail saat kirim data:", error.response || error);
+      setPopup("Gagal menyimpan! Periksa inspect console browser untuk melihat error.");
     }
 
     setTimeout(() => setPopup(""), 3000);
@@ -92,10 +79,8 @@ const BerbagiInformasi = () => {
       </div>
 
       <div className="berbagi-content">
-        {/* DAFTAR INFORMASI */}
         <div className="daftar-informasi">
           <h2>Daftar Informasi</h2>
-
           {daftarInformasi.length === 0 ? (
             <p style={{ fontSize: "18px", color: "#555" }}>Belum ada informasi tersedia.</p>
           ) : (
@@ -115,7 +100,6 @@ const BerbagiInformasi = () => {
           )}
         </div>
 
-        {/* FORM INPUT */}
         <div className="form-area">
           <div className="form-card">
             <div className="form-group">
@@ -163,7 +147,6 @@ const BerbagiInformasi = () => {
         </div>
       </div>
 
-      {/* MODAL DETAIL */}
       {showDetail && (
         <div className="modal-overlay" onClick={() => setShowDetail(false)}>
           <div className="modal-box" onClick={(e) => e.stopPropagation()}>
