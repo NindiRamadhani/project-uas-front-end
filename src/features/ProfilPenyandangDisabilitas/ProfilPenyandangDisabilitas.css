@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   font-family: 'Poppins', sans-serif;
 }
 
@@ -13,60 +12,56 @@ body{
 }
 
 /* CONTAINER */
-
 .profile-container{
   width: 100%;
   min-height: 100vh;
 }
 
-/* CONTENT */
-
+/* CONTENT CARD */
 .profile-content{
   width: 90%;
-
+  max-width: 800px; /* Membatasi lebar kotak putih agar proporsional di tengah layar */
   margin: 50px auto;
-
   background: white;
-
   border-radius: 35px;
-
   padding: 60px;
-
+  
+  /* Flexbox susunan vertikal ke bawah */
   display: flex;
-  gap: 70px;
-
+  flex-direction: column; 
+  align-items: center;    /* Menengahkan foto profil & semua info teks */
+  gap: 25px;              /* Jarak presisi dari bulatan foto ke teks nama */
+  
   box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
-/* FOTO PROFIL */
-
+/* FOTO PROFIL SECTIONS */
 .profile-image-section{
-  width: 40%;
-
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.profile-icon{
-  font-size: 340px;
-
-  color: #b56cff;
-
+/* DESAIN BULATAN PROFIL - MIRIP HALAMAN RELAWAN (FELICIA) */
+.profile-icon {
+  font-size: 150px !important; 
+  width: 150px !important;
+  height: 150px !important;
+  color: #b56cff !important;
   background: linear-gradient(
     180deg,
     #f7eeff,
     #ead7ff
-  );
-
-  border-radius: 50%;
-
-  padding: 18px;
-
+  ) !important;
+  border-radius: 50% !important;
+  padding: 10px !important;
+  border: none !important; /* Membuang garis hitam luar yang mengganggu */
+  
+  /* Efek glow ungu estetik di belakang bulatan */
   box-shadow:
     0 10px 25px rgba(181,108,255,0.25),
-    0 5px 15px rgba(0,0,0,0.1);
-
+    0 5px 15px rgba(0,0,0,0.1) !important;
   transition: 0.3s ease;
 }
 
@@ -74,169 +69,125 @@ body{
   transform: scale(1.03);
 }
 
-/* INFO */
-
+/* INFO TEKS NAMA & STATUS */
 .profile-info{
-  flex: 1;
+  width: 100%;
+  text-align: center; /* Menengahkan teks nama h1 & status disabilitas */
 }
 
 .profile-info h1{
-  font-size: 52px;
+  font-size: 42px;        
   font-weight: 700;
-
   color: #333;
-
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .profile-status{
-  font-size: 24px;
+  font-size: 20px;
   color: #777;
-
-  margin-bottom: 45px;
+  margin-bottom: 35px;
 }
 
-/* FORM */
-
+/* FORM STYLING */
 .profile-form{
   width: 100%;
+  text-align: left; /* Teks label form inputan dikembalikan rapi ke rata kiri */
 }
 
 .input-group{
   display: flex;
   flex-direction: column;
-
   margin-bottom: 28px;
 }
 
 .input-group label{
   font-size: 19px;
   font-weight: 600;
-
   color: #444;
-
   margin-bottom: 10px;
 }
 
 .input-group input,
 .input-group textarea{
   width: 100%;
-
   padding: 18px;
-
   border-radius: 18px;
-
   border: 2px solid #e5e5e5;
-
   background-color: #f8f8f8;
-
   font-size: 17px;
-
   outline: none;
-
   transition: 0.3s ease;
 }
 
 .input-group textarea{
   height: 130px;
-
   resize: none;
 }
 
 .input-group input:focus,
 .input-group textarea:focus{
   border-color: #b56cff;
-
   background-color: white;
-
   box-shadow: 0 4px 12px rgba(181,108,255,0.15);
 }
 
-/* DISABLED INPUT */
-
+/* DISABLED STATE INPUT */
 .input-group input:disabled,
 .input-group textarea:disabled{
   background-color: #f1f1f1;
-
   color: #666;
-
   cursor: not-allowed;
 }
 
-/* BUTTON */
-
+/* TOMBOL SIMPAN */
 .save-btn{
   background: linear-gradient(
     90deg,
     #8d45e6,
     #c06cff
   );
-
   color: white;
-
   border: none;
-
   padding: 18px 38px;
-
   border-radius: 18px;
-
   font-size: 18px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition: 0.3s ease;
+  width: 100%; /* Memenuhi lebar form agar solid dan kokoh */
 }
 
 .save-btn:hover{
   transform: translateY(-3px);
-
   box-shadow: 0 8px 18px rgba(141,69,230,0.3);
 }
 
-/* RESPONSIVE */
-
+/* RESPONSIVE LAYOUT */
 @media screen and (max-width: 1000px){
-
   .profile-content{
-    flex-direction: column;
-    align-items: center;
-
     padding: 45px;
   }
-
-  .profile-image-section{
-    width: 100%;
-  }
-
   .profile-icon{
-    font-size: 280px;
+    font-size: 140px !important;
+    width: 140px !important;
+    height: 140px !important;
   }
-
 }
 
 @media screen and (max-width: 700px){
-
   .profile-content{
     width: 95%;
-
     padding: 30px;
   }
-
   .profile-info h1{
-    font-size: 36px;
-
-    text-align: center;
+    font-size: 32px;
   }
-
   .profile-status{
-    text-align: center;
-
-    font-size: 20px;
+    font-size: 18px;
   }
-
   .profile-icon{
-    font-size: 220px;
+    font-size: 120px !important;
+    width: 120px !important;
+    height: 120px !important;
   }
-
 }
