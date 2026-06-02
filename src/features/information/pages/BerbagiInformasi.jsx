@@ -1,232 +1,180 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./BerbagiInformasi.css";
 
 const BerbagiInformasi = () => {
-
   const navigate = useNavigate();
-
-
-  // AMBIL ROLE
   const role = localStorage.getItem("role");
+  const userId = localStorage.getItem("user_id") || 1; 
+  const token = localStorage.getItem("token"); // Ambil token login sanctum
 
   const [judul, setJudul] = useState("");
   const [isi, setIsi] = useState("");
-
   const [popup, setPopup] = useState("");
-
-  // popup baca selengkapnya
   const [showDetail, setShowDetail] = useState(false);
+  const [selectedInfo, setSelectedInfo] = useState({ title: "", content: "" });
+  const [daftarInformasi, setDaftarInformasi] = useState([]);
 
-  const [selectedInfo, setSelectedInfo] = useState({
-    title: "",
-    content: "",
-  });
+  // URL disesuaikan dengan port 9000 dari PHP Herd & endpoint 'informations' dari Laravel Resource
+  const API_URL = "http://127.0.0.1:9000/api/informations";
 
-  const daftarInformasi = [
-    {
-      id: 1,
-      title: "Lowongan pekerjaan bagi penyandang disabilitas",
-      content:
-        "Tersedia lowongan pekerjaan administrasi dan customer service ramah disabilitas di beberapa perusahaan nasional dengan sistem kerja hybrid dan fasilitas aksesibilitas lengkap.",
-    },
+  // 1. AMBIL DATA DARI DATABASE SAAT HALAMAN DIBUKA
+  useEffect(() => {
+    fetchInformasi();
+  }, []);
 
-    {
-      id: 2,
-      title: "Beasiswa bagi tunanetra",
-      content:
-        "Program beasiswa pendidikan penuh untuk mahasiswa tunanetra tahun 2026 telah dibuka dengan dukungan perangkat pembelajaran aksesibel.",
-    },
+  const fetchInformasi = async () => {
+    try {
+      const response = await axios.get(API_URL);
+      if (response.data.success) {
+        setDaftarInformasi(response.data.data);
+      }
+    } catch (error) {
+      console.error("Gagal mengambil data dari database:", error);
+    }
+  };
 
-    {
-      id: 3,
-      title: "Pelatihan desain grafis online",
-      content:
-        "Pelatihan desain grafis online gratis selama 3 bulan khusus penyandang disabilitas dengan mentor profesional.",
-    },
-  ];
-
-  const handleKirim = () => {
-
-    // CEK ROLE
+  // 2. KIRIM DATA BARU KE DATABASE
+  const handleKirim = async () => {
     if (role !== "relawan") {
-
-      setPopup(
-        "Maaf, informasi hanya dapat dibagikan oleh relawan."
-      );
-
-      setTimeout(() => {
-        setPopup("");
-      }, 3000);
-
+      setPopup("Maaf, informasi hanya dapat dibagikan oleh relawan.");
+      setTimeout(() => setPopup(""), 3000);
       return;
     }
 
-    // VALIDASI INPUT
-    if (!judul || !isi) {
-
+    if (!judul.trim() || !isi.trim()) {
       setPopup("Judul dan isi informasi wajib diisi!");
-
-      setTimeout(() => {
-        setPopup("");
-      }, 3000);
-
+      setTimeout(() => setPopup(""), 3000);
       return;
     }
 
-    setPopup("Informasi berhasil dibagikan!");
+    try {
+      const dataDikirim = {
+        user_id: userId, 
+        title: judul.trim(),
+        content: isi.trim()
+      };
 
-    setTimeout(() => {
-      setPopup("");
-    }, 3000);
+      // Tembak API POST Laravel dengan menyertakan Bearer Token di Header
+      const response = await axios.post(API_URL, dataDikirim, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
 
-    setJudul("");
-    setIsi("");
+      if (response.data.success) {
+        setPopup("Informasi berhasil disimpan ke database!");
+        fetchInformasi(); // Panggil ulang data agar langsung muncul di daftar kiri
+        setJudul("");
+        setIsi("");
+      }
+    } catch (error) {
+      console.error("Gagal menyimpan data:", error);
+      setPopup("Terjadi kesalahan sistem atau Anda belum login.");
+    }
+
+    setTimeout(() => setPopup(""), 3000);
   };
 
   const handleBaca = (item) => {
-
-    setSelectedInfo(item);
-
+    setSelectedInfo({
+      title: item.title,
+      content: item.content
+    });
     setShowDetail(true);
   };
 
   return (
-
     <div className="berbagi-page">
-
-      {/* HEADER */}
       <div className="berbagi-header">
-
         <h1>Berbagi Informasi</h1>
-
       </div>
 
-      {/* CONTENT */}
       <div className="berbagi-content">
-
         {/* DAFTAR INFORMASI */}
         <div className="daftar-informasi">
-
           <h2>Daftar Informasi</h2>
 
-          {daftarInformasi.map((item) => (
-
-            <div className="info-card" key={item.id}>
-
-              <div className="info-left">
-
-                <div className="info-icon"></div>
-
-                <div className="info-text">
-
-                  <p>{item.title}</p>
-
+          {daftarInformasi.length === 0 ? (
+            <p style={{ fontSize: "18px", color: "#555" }}>Belum ada informasi tersedia.</p>
+          ) : (
+            daftarInformasi.map((item) => (
+              <div className="info-card" key={item.id}>
+                <div className="info-left">
+                  <div className="info-icon"></div>
+                  <div className="info-text">
+                    <p>{item.title}</p>
+                  </div>
                 </div>
-
+                <button className="info-button" onClick={() => handleBaca(item)}>
+                  Baca Selengkapnya
+                </button>
               </div>
-
-              <button
-                className="info-button"
-                onClick={() => handleBaca(item)}
-              >
-                Baca Selengkapnya
-              </button>
-
-            </div>
-
-          ))}
-
+            ))
+          )}
         </div>
 
-        {/* FORM */}
+        {/* FORM INPUT */}
         <div className="form-area">
-
           <div className="form-card">
-
             <div className="form-group">
-
               <label>Judul</label>
-
               <input
                 type="text"
                 value={judul}
                 onChange={(e) => setJudul(e.target.value)}
                 className="input-judul"
+                placeholder="Ketik judul..."
               />
-
             </div>
 
             <div className="form-group">
-
               <label>Isi</label>
-
               <textarea
                 value={isi}
                 onChange={(e) => setIsi(e.target.value)}
                 className="input-isi"
+                placeholder="Ketik isi informasi..."
               ></textarea>
-
             </div>
 
             <div className="button-area">
-
-              <button
-                className="kembali-button"
-                onClick={() => navigate("/home")}
-              >
+              <button className="kembali-button" onClick={() => navigate("/home")}>
                 Kembali
               </button>
-
-              <button
-                className="kirim-button"
-                onClick={handleKirim}
-              >
+              <button className="kirim-button" onClick={handleKirim}>
                 Kirim
               </button>
-
             </div>
 
             {popup && (
-
-              <div className="popup-message">
-
+              <div 
+                className="popup-message"
+                style={{
+                  backgroundColor: popup.includes("berhasil") ? "#e0f2fe" : "#fee2e2",
+                  color: popup.includes("berhasil") ? "#0369a1" : "#b91c1c"
+                }}
+              >
                 {popup}
-
               </div>
-
             )}
-
           </div>
-
         </div>
-
       </div>
 
       {/* MODAL DETAIL */}
       {showDetail && (
-
-        <div className="modal-overlay">
-
-          <div className="modal-box">
-
+        <div className="modal-overlay" onClick={() => setShowDetail(false)}>
+          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
             <h2>{selectedInfo.title}</h2>
-
-            <p>{selectedInfo.content}</p>
-
-            <button
-              className="tutup-button"
-              onClick={() => setShowDetail(false)}
-            >
+            <p style={{ whiteSpace: "pre-wrap" }}>{selectedInfo.content}</p>
+            <button className="tutup-button" onClick={() => setShowDetail(false)}>
               Tutup
             </button>
-
           </div>
-
         </div>
-
       )}
-
     </div>
   );
 };
