@@ -24,64 +24,74 @@ function Navbar() {
 
   const [activeHelpId, setActiveHelpId] = useState(null);
 
-  // Cari ID bantuan dari database untuk rute tombol Chat privat
+  // Cari ID bantuan untuk rute tombol Chat privat
   useEffect(() => {
+    // 1. CEK LOCALSTORAGE TERLEBIH DAHULU (Prioritas Utama agar tidak kembali ke /chat/1 saat refresh)
+    const savedChatId = localStorage.getItem("active_chat_id");
+    if (savedChatId) {
+      setActiveHelpId(savedChatId);
+    }
+
+    // 2. TETAP LAKUKAN FETCH API SEBAGAI SYNC CADANGAN
     const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
 
     ajax
       .get("http://127.0.0.1:9000/api/help-requests", config)
       .then((response) => {
-        // Antisipasi jika struktur API dibungkus dalam key 'data' atau array langsung
         const dataBantuan = Array.isArray(response.data) 
           ? response.data 
           : (response.data && Array.isArray(response.data.data) ? response.data.data : []);
 
-        if (dataBantuan.length === 0) return;
-
-        // Ambil ID dari localStorage, bersihkan dari spasi/karakter aneh jika ada
         const cleanMyId = myId ? myId.toString().trim() : "";
 
         if (role === "disabilitas") {
-          // JALAN AMAN: Cari bantuan yang user_id-nya sama (dikonversi ke string agar aman dari bug tipe data)
           const myRequest = dataBantuan.find(
             (req) => req.user_id && req.user_id.toString().trim() === cleanMyId
           );
 
           if (myRequest) {
             setActiveHelpId(myRequest.id);
-          } else {
-            // JALAN PINTAS DEMO: Jika ID lokal tidak sinkron, paksa pakai ID dari baris data pertama di database
+            localStorage.setItem("active_chat_id", myRequest.id); // Kunci ID ke lokal browser
+          } else if (!savedChatId && dataBantuan.length > 0) {
+            // Jika di localstorage kosong, baru gunakan fallback antrean database
             setActiveHelpId(dataBantuan[0].id);
+            localStorage.setItem("active_chat_id", dataBantuan[0].id);
           }
         } else {
-          // Jika yang login RELAWAN: cari bantuan yang dia hendaki atau ambil data antrean pertama
+          // JIKA YANG LOGIN RELAWAN
           const acceptedRequest = dataBantuan.find(
             (req) => req.relawan_id && req.relawan_id.toString().trim() === cleanMyId
           );
           
           if (acceptedRequest) {
             setActiveHelpId(acceptedRequest.id);
-          } else {
-            // Langsung ambil data antrean pertama agar relawan bisa membalas chat Rohani/Felicia
+            localStorage.setItem("active_chat_id", acceptedRequest.id); // Kunci ID ke lokal browser
+          } else if (!savedChatId && dataBantuan.length > 0) {
             setActiveHelpId(dataBantuan[0].id);
+            localStorage.setItem("active_chat_id", dataBantuan[0].id);
           }
         }
       })
       .catch((error) => {
         console.error("Gagal mengambil data sinkronisasi chat pada Navbar:", error);
-        // Fallback darurat jika server sempat loss connection saat load navbar
-        setActiveHelpId(1);
       });
   }, [myId, role, token]);
 
   // Fungsi mengalihkan rute chat secara dinamis saat teks/icon diklik
   const handleChatNavigation = (e) => {
     e.preventDefault();
-    if (activeHelpId) {
+    
+    // Ambil data real-time terakhir dari localstorage sebelum navigasi dijalankan
+    const currentSavedId = localStorage.getItem("active_chat_id");
+
+    if (currentSavedId) {
+      navigate(`/chat/${currentSavedId}`);
+    } else if (activeHelpId) {
       navigate(`/chat/${activeHelpId}`);
     } else {
-      // Tombol darurat jika data benar-benar terkunci, paksa lempar ke chat ID 1 demi kelancaran demo
-      navigate("/chat/1");
+      // Jika benar-benar belum membuat/meng-ACC bantuan sama sekali sepanjang sesi
+      alert("Anda belum memiliki obrolan chat aktif yang terhubung.");
+      navigate("/home"); 
     }
   };
 
@@ -132,7 +142,7 @@ function Navbar() {
           </Link>
         )}
 
-        {/* CHAT - ANTI BUG TIPE DATA */}
+        {/* CHAT - PERBAIKAN SINKRONISASI DINAMIS */}
         <a
           href="#chat"
           onClick={handleChatNavigation}
@@ -168,6 +178,7 @@ function Navbar() {
         {/* LOGOUT */}
         <Link
           to="/logout"
+          onClick={() => localStorage.removeItem("active_chat_id")} // Bersihkan jejak chat saat user logout
           className="menu-item-link"
         >
           <IoLogOutOutline className="nav-icon" />
